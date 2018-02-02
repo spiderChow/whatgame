@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% import "bootstrap/wtf.html" as wtf %}
 <!-- saved from url=(0051)https://getbootstrap.com/docs/4.0/examples/sign-in/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -18,31 +19,33 @@
 
   <body class="text-center">
     <div class="container">
+     
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <img class="mb-4" src="{{ url_for('static', filename='bootstrap-solid.svg') }}" alt="" width="72" height="72">
           <h2 class="mb-3 font-weight-normal">How to play? </h2>
           <p class="mb-3">Please input as many questions as possible(ERP topic). Every time you enter a question,
           we score you. If your question is different with others, you will get high score.The lower the overlap, the higher the score.</p>
-          <form class="form-signin" action="{{url_for('play')}}">
+          <form class="form-signin" method='POST'>
+              {{ form.hidden_tag() }}
+              {{ form.email(class="form-control mb-3",id="inputEmail",placeholder="Email address",type="email") }}
 
-          <label for="inputEmail" class="sr-only">Email address</label>
-          <input type="email" id="inputEmail" class="form-control mb-3" placeholder="Email address" required="" autofocus="">
-          <label for="inputNickname" class="sr-only">Nickname</label>
-          <input type="text" id="inputNickname" class="form-control mb-3" placeholder="Nickname" required="">
-          
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Go to play</button>
-          
-    </form>
+              {% for message in get_flashed_messages() %}
+              <p class="mb-3 text-warning font-weight-bold">{{ message }}</p>
+              {% endfor %}
+              
+              {{ form.username(id="inputNickname", class="form-control mb-3",placeholder="Nickname",type="text") }}
+              
+              {{ form.submit(class="btn btn-lg btn-primary btn-block",type="submit") }}
+               
+            </form>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
+       
         </div>
       </div>
     </div>
-    
-    
-  
-
-</body></html>
+</body>
+</script></html>

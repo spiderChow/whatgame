@@ -15,56 +15,25 @@
     <!-- Custom styles for this template -->
     <link href="{{ url_for('static', filename='form-validation.css') }}" rel="stylesheet">
   </head>
-
   <body class="bg-light">
-
     <div class="container">
-      
-
       <div class="row">
-        <div class="col-md-4 order-md-2 mb-4">
-          
-          <ul class="list-group mb-3">
-
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-              <img class="align-self-center" src="{{ url_for('static', filename='bootstrap-solid.svg') }}" alt="" width="48" height="48">
-                <div class="d-flex flex-column">
-                  <div class="p-2"><span class="text-muted">Daming</span></div>
-                  <div class="p-2">Score:  <span class="text-muted">100</span></div>
-                  <div class="p-2">Question amount:  <span class="text-muted">8</span></div>
-                </div>
-              
-            </li>
-
-            <li class="list-group-item d-flex justify-content-between lh-condensed bg-secondary text-white">
-                <h1 class="align-self-center">1</h1>
-                <div class="d-flex flex-column">
-                  <div class="p-2"><span>Daming</span></div>
-                  <div class="p-2">Score:  <span>100</span></div>
-                  <div class="p-2">Question amount:  <span>8</span></div>
-                </div>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed bg-secondary text-white">
-                <h1 class="align-self-center">2</h1>
-                <div class="d-flex flex-column">
-                  <div class="p-2"><span>Jun</span></div>
-                  <div class="p-2">Score:  <span>90</span></div>
-                  <div class="p-2">Question amount:  <span>7</span></div>
-                </div>
-            </li> 
-            <li class="list-group-item d-flex justify-content-between lh-condensed bg-secondary text-white">
-                <h1 class="align-self-center">3</h1>
-                <div class="d-flex flex-column">
-                  <div class="p-2"><span>Jun</span></div>
-                  <div class="p-2">Score:  <span>90</span></div>
-                  <div class="p-2">Question amount:  <span>7</span></div>
-                </div>
-            </li> 
-
+        <div class="col-md-4 order-md-2 mb-4" >    
+        <a href=# id=calculate>To be replaced by Timer??</a>      
+          <ul class="list-group list-group-flush">
+           <li class='list-group-item d-flex justify-content-between lh-condensed bg-white text-dark '>
+              <img src="{{ url_for('static', filename='bootstrap-solid.svg') }}" width="48" height="48" class='align-self-center'>
+              <div class='d-flex flex-column'>
+                  <div class='p-2'><span class='username'></span></div>
+                  <div class='p-2'>Score:  <span class='score'></span></div>
+                  <div class='p-2'>Question amount:  <span class='q-amount'></span></div>
+              </div>
+          </li>
           </ul>
-        </div>
-
-        
+          <ul class="list-group mb-3 list-group-flush" id="rank">
+           
+          </ul>
+        </div>    
         <div class="col-md-8 order-md-1">
           <div class="py-5 text-center">
             <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='bootstrap-solid.svg') }}" alt="" width="72" height="72">
@@ -91,7 +60,6 @@
           </form>
         </div>
       </div>
-
       <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">© 2017-2018 SMB</p>
         <ul class="list-inline">
@@ -105,34 +73,41 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{ url_for('static', filename='jquery-3.2.1.slim.min.js.download') }}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>   
+    <script src="{{ url_for('static', filename='bootstrap.min.js.download') }}"></script> 
+    <script type=text/javascript>
+            var $SCRIPT_ROOT = {{request.script_root|tojson|safe}};  
 
-    <script src="{{ url_for('static', filename='popper.min.js.download') }}"></script>
-    <script src="{{ url_for('static', filename='bootstrap.min.js.download') }}"></script>
-    <script src="{{ url_for('static', filename='holder.min.js.download') }}"></script>
-    <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
-      (function() {
-        'use strict';
-
-        window.addEventListener('load', function() {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
-          var forms = document.getElementsByClassName('needs-validation');
-
-          // Loop over them and prevent submission
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
+    </script>
+    <script type=text/javascript>
+        $(function() {
+          $('a#calculate').bind('click', function() {
+            $.getJSON($SCRIPT_ROOT + '/_rank_list', {
+             
+              user_id: 1
+            }, function(data){ 
+                
+                var count = data.json_list.length;
+                while(count>0){
+                  $("#rank").append("<li class='list-group-item d-flex justify-content-between lh-condensed bg-secondary text-white'><h1 class='align-self-center'></h1><div class='d-flex flex-column'><div class='p-2'><span class='username'></span></div><div class='p-2'>Score:  <span class='score'></span></div><div class='p-2'>Question amount:  <span class='q-amount'></span></div></div></li>")
+                  count--;
+                }
+                $("#rank").find("h1").each(function(index,value){
+                  $(this).text(index+1);
+                });
+                $("#rank").find(".username").each(function(index,value){
+                  $(this).text(data.json_list[index].username);
+                });
+                $("#rank").find(".score").each(function(index,value){
+                  $(this).text(data.json_list[index].score);
+                });
+                $("#rank").find(".q-amount").each(function(index,value){
+                  $(this).text(data.json_list[index].questionamount);
+                });   
+              }); 
+            return false;
           });
-        }, false);
-      })();
+        });
     </script>
   
 
