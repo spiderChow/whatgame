@@ -1,1 +1,0 @@
-from whatgame.app import app
