@@ -23,7 +23,13 @@
         </div>
         <div class="col-md-4">
           <form method="get">
-          
+              {% for message in get_flashed_messages() %}
+              <div class="alert alert-warning">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  {{ message }}
+              </div>
+              {% endfor %}
+            
             <button class="btn btn-lg btn-primary btn-block" type="submit" formaction="{{url_for('main.how_to_play')}}">Single Player</button>
             <button class="btn btn-lg btn-primary btn-block" type="submit" formaction="{{url_for('main.how_to_play')}}">Multi-Players</button>
             <button class="btn btn-lg btn-primary btn-block" type="submit" formaction="{{url_for('main.how_to_play')}}">Rankiing List</button>
@@ -44,4 +50,11 @@
         </div>
       </div>
   </div>
+   <script type=text/javascript>
+        window.setTimeout(function(){
+        $('[data-dismiss="alert"]').alert('close');
+        },2000);
+        
+       
+    </script>
 </body></html>

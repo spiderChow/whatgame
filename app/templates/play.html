@@ -16,20 +16,31 @@
     <link href="{{ url_for('static', filename='form-validation.css') }}" rel="stylesheet">
   </head>
   <body class="bg-light">
+    
+
     <div class="container">
       <div class="row">
+
         <div class="col-md-4 order-md-2 mb-4" >    
-        <a href=# id=calculate>To be replaced by Timer??</a>      
+          {% if current_user.is_authenticated %}
+          <span class="badge badge-light"><a href="{{url_for('main.logout')}}" class='text-dark'>Sign Out</a></span>
+          {% else %}
+          <span class="badge badge-info"><a href="{{url_for('main.login')}}">Sign In</a></span>
+          {% endif %}
+          
+    
+          {% if current_user.is_authenticated %}  
           <ul class="list-group list-group-flush">
            <li class='list-group-item d-flex justify-content-between lh-condensed bg-white text-dark '>
               <img src="{{ url_for('static', filename='bootstrap-solid.svg') }}" width="48" height="48" class='align-self-center'>
               <div class='d-flex flex-column'>
-                  <div class='p-2'><span class='username'></span></div>
-                  <div class='p-2'>Score:  <span class='score'></span></div>
-                  <div class='p-2'>Question amount:  <span class='q-amount'></span></div>
+                  <div class='p-2'>{{ current_user.username }}<span class='username'></span></div>
+                  <div class='p-2'>Score:  <span class='score'>{{ current_user.score }}</span></div>
+                  <div class='p-2'>Question amount:  <span class='q-amount'>{{ current_user.questionamount }}</span></div>
               </div>
           </li>
           </ul>
+          {% endif %}
           <ul class="list-group mb-3 list-group-flush" id="rank">
            
           </ul>
@@ -38,6 +49,7 @@
           <div class="py-5 text-center">
             <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='bootstrap-solid.svg') }}" alt="" width="72" height="72">
             <h2>Here are some topics for your reference</h2>
+            
             <div class="btn-group">
             <button type="button " class="btn btn-primary btn-outline-info" >Finance</button>
             <button type="button" class="btn btn-primary btn-outline-info ml-4" >CRM</button>
@@ -46,20 +58,51 @@
             </div> 
           </div>
           <h4 class="mb-3">Here is an example:</h4>
-          <p class="text-muted">Show me the sales amount of iPhoneX last month.</p>
-          <form class="needs-validation" novalidate="">
-            <div class="mb-3">
-              <label for="sentence">Try to type a question here.</label>
-              <input type="text" class="form-control" id="sentence" placeholder="" required="">
-              <div class="invalid-feedback">
-                Please enter your sentence.
-              </div>
+          <p class="text-muted mb-5">Show me the sales amount of iPhoneX last month.</p>
+          <form class="needs-validation" novalidate="" action="{{ url_for('main.dump_sentence') }}" method="get">
+            {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
             </div>
+            {% endfor %}
+             
+            <div class="row mb-3">
+                <div class="col-md-3">    
+                  <div class="dropdown mb-3">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Topics
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                      <a class="dropdown-item" href="#">CRM</a>
+                      <a class="dropdown-item" href="#">Sales</a>
+                      <a class="dropdown-item" href="#">OMS</a>
+                      <textarea name='topic-selected' style="display:none;"></textarea>
+                     
+                      
+                     
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-5 ">
+                  <!-- <label for="sentence">Try to type a question here.</label> -->
+                  <input type="text" class="form-control" id="sentence" placeholder="Try to type a question here." required="" name="sentence">
+                  <div class="invalid-feedback">
+                    Please enter your sentence.
+                  </div>
+                </div>
+            </div>
+            
 
             <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
           </form>
         </div>
       </div>
+
+
+     
+
       <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">© 2017-2018 SMB</p>
         <ul class="list-inline">
@@ -73,7 +116,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>   
+    <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>  
+    <script src="{{ url_for('static', filename='popper.min.js') }}"></script>   
     <script src="{{ url_for('static', filename='bootstrap.min.js.download') }}"></script> 
     <script type=text/javascript>
             var $SCRIPT_ROOT = {{request.script_root|tojson|safe}};  
@@ -81,7 +125,7 @@
     </script>
     <script type=text/javascript>
         $(function() {
-          $('a#calculate').bind('click', function() {
+          //$('a#calculate').bind('click', function() {
             $.getJSON($SCRIPT_ROOT + '/_rank_list', {
              
               user_id: 1
@@ -106,8 +150,19 @@
                 });   
               }); 
             return false;
-          });
+          //});
         });
+    </script>
+    <script type=text/javascript>
+        window.setTimeout(function(){
+        $('[data-dismiss="alert"]').alert('close');
+        },2000);
+        
+        $('.dropdown-menu').on('click', function(e) {
+         var $target = $(e.target);
+         $target.is('a') && $('#dropdownMenuButton').text($target.text())
+         && $('textarea').text($target.text())
+        })
     </script>
   
 
