@@ -15,6 +15,9 @@ def home():
 
 @main.route('/howtoplay',methods=['GET','POST']) 
 def how_to_play():
+    session.pop('topic', None)
+    session.pop('sentence', None)
+    session.pop('email', None)
     form = LoginForm()
     if form.validate_on_submit():
         email = form.email.data
@@ -24,8 +27,9 @@ def how_to_play():
             # the user is new-comer
             if username is None or len(username)==0:
                 # but fails to enter a name
+                session['email']=email
                 flash('please name yourself!')
-                return redirect(url_for('.how_to_play'))
+                return render_template('how_to_play.html',form=form,email=session.get('email'))
             user = User(email=email,username=username)
             db.session.add(user)
             db.session.commit()
@@ -59,16 +63,31 @@ def dump_sentence():
     if topic is not None and len(topic)>0:
         if sentence is not None and len(sentence)>0:
 
+            session['topic'] = topic
+            session['sentence'] = sentence
+
             user_id = current_user.id
             sentence = Sentence(topic=topic, content=sentence, user_id=user_id)
-            db.session.add(sentence)
+            
+
+            from app.main.similarity import similar 
+            sim_sentence, cosine = similar(sentence.content)
 
             user = current_user
             user.questionamount = user.questionamount+1
-            user.score = user.score+10
-            db.session.add(user)
-            db.session.commit()
-            flash(u'Your score is now at {}.'.format(user.score))
+            
+            
+
+            if cosine == 0 :
+                user.score = user.score + 0
+                flash(u"Look like your sentence not that meaningful. Try it again.") 
+            else:
+                user.score = user.score+round(10*(1/cosine))
+                flash("Your score is now at {}.The most similar sentence from other users' is :\n {}".format(user.score,sim_sentence))
+            #flash(u"The most similar sentence from other users' is : {}.".format(sim_sentence))
+                db.session.add(sentence)
+                db.session.add(user)
+                db.session.commit()
             return redirect(url_for('main.play'))
 
         else:

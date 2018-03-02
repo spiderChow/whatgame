@@ -32,7 +32,7 @@
           {% if current_user.is_authenticated %}  
           <ul class="list-group list-group-flush">
            <li class='list-group-item d-flex justify-content-between lh-condensed bg-white text-dark '>
-              <img src="{{ url_for('static', filename='bootstrap-solid.svg') }}" width="48" height="48" class='align-self-center'>
+              <img src="{{ url_for('static', filename='images.png') }}" width="48" height="48" class='align-self-center'>
               <div class='d-flex flex-column'>
                   <div class='p-2'>{{ current_user.username }}<span class='username'></span></div>
                   <div class='p-2'>Score:  <span class='score'>{{ current_user.score }}</span></div>
@@ -47,21 +47,21 @@
         </div>    
         <div class="col-md-8 order-md-1">
           <div class="py-5 text-center">
-            <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='bootstrap-solid.svg') }}" alt="" width="72" height="72">
-            <h2>Here are some topics for your reference</h2>
+            <!-- <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='bootstrap-solid.svg') }}" alt="" width="72" height="72"> -->
+            <!-- <h2>Here are some topics for your reference</h2>
             
             <div class="btn-group">
-            <button type="button " class="btn btn-primary btn-outline-info" >Finance</button>
-            <button type="button" class="btn btn-primary btn-outline-info ml-4" >CRM</button>
-            <button type="button" class="btn btn-primary btn-outline-info ml-4" >Sales</button>
-            <button type="button" class="btn btn-primary btn-outline-info ml-4" >OMS</button>
-            </div> 
+            <button type="button " class="btn btn-primary btn-outline-info " disabled >Finance</button>
+            <button type="button" class="btn btn-primary btn-outline-info ml-4 " disabled >CRM</button>
+            <button type="button" class="btn btn-primary btn-outline-info ml-4 " disabled>Sales</button>
+            <button type="button" class="btn btn-primary btn-outline-info ml-4 " disabled>OMS</button>
+            </div>  -->
           </div>
           <h4 class="mb-3">Here is an example:</h4>
           <p class="text-muted mb-5">Show me the sales amount of iPhoneX last month.</p>
           <form class="needs-validation" novalidate="" action="{{ url_for('main.dump_sentence') }}" method="get">
             {% for message in get_flashed_messages() %}
-            <div class="alert alert-warning">
+            <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 {{ message }}
             </div>
@@ -70,15 +70,19 @@
             <div class="row mb-3">
                 <div class="col-md-3">    
                   <div class="dropdown mb-3">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Topics
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                      {% if session['topic'] %}
+                      {{ session['topic'] }}
+                      {% else %}
+                        Topics  
+                      {% endif %}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                       <a class="dropdown-item" href="#">CRM</a>
                       <a class="dropdown-item" href="#">Sales</a>
                       <a class="dropdown-item" href="#">OMS</a>
-                      <textarea name='topic-selected' style="display:none;"></textarea>
+                      <textarea name='topic-selected' style="display:none;">{% if session['topic'] %}{{ session['topic'] }}{% endif %}</textarea>
                      
                       
                      
@@ -95,7 +99,7 @@
             </div>
             
 
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit" id="submit">Submit</button>
           </form>
         </div>
       </div>
@@ -132,6 +136,9 @@
             }, function(data){ 
                 
                 var count = data.json_list.length;
+                if (count>7){
+                  count = 7;
+                }
                 while(count>0){
                   $("#rank").append("<li class='list-group-item d-flex justify-content-between lh-condensed bg-secondary text-white'><h1 class='align-self-center'></h1><div class='d-flex flex-column'><div class='p-2'><span class='username'></span></div><div class='p-2'>Score:  <span class='score'></span></div><div class='p-2'>Question amount:  <span class='q-amount'></span></div></div></li>")
                   count--;
@@ -154,15 +161,26 @@
         });
     </script>
     <script type=text/javascript>
-        window.setTimeout(function(){
-        $('[data-dismiss="alert"]').alert('close');
-        },2000);
+        // window.setTimeout(function(){
+        // $('[data-dismiss="alert"]').alert('close');
+        // },2000);
         
         $('.dropdown-menu').on('click', function(e) {
          var $target = $(e.target);
          $target.is('a') && $('#dropdownMenuButton').text($target.text())
          && $('textarea').text($target.text())
         })
+
+        $(document).ready(  
+            function() {  
+                $("#sentence").keydown(function(event) {  
+                    if (event.keyCode == 13) {  
+                        $("#submit").trigger("click");  
+                    }  
+                })  
+            }  
+        ); 
+   
     </script>
   
 
