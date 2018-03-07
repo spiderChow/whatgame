@@ -3,25 +3,29 @@
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="{{ url_for('static', filename='bootstrap-solid.svg') }}">
-
-    <title>Signin Template for Bootstrap</title>
+    <title>Corpus Game</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{ url_for('static', filename='signin.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
   </head>
 
-  <body class="text-center">
+  <body class="">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
+         <img src="{{ url_for('static', filename='imgs/SAP logo.png') }}"  alt="">
+      </div>
+
+      <div class="row" >
+        <p id='corpus-game'>Corpus Game</p> 
+      </div>
+      
+      <div class="row" id='row3'>
+        <div class="col-7">
         </div>
-        <div class="col-md-4">
+        <div class="col-4">
           <form method="get">
               {% for message in get_flashed_messages() %}
               <div class="alert alert-warning">
@@ -36,25 +40,11 @@
           </form>
          
         </div>
-        <div class="col-md-4">
+        <div class="col-1">
         </div> 
       </div> 
-      <div class="row">
-        <div class="col-md-4">
-        </div>
-        <div class="col-md-4">
-          <p class="mt-5 mb-5 text-muted">© 2017-2018</p>
-        </div>
-        
-        <div class="col-md-4">
-        </div>
-      </div>
+      
   </div>
-   <script type=text/javascript>
-        window.setTimeout(function(){
-        $('[data-dismiss="alert"]').alert('close');
-        },2000);
-        
-       
-    </script>
+  <script type=text/javascript>
+  </script>
 </body></html>

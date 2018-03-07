@@ -1,14 +1,14 @@
 # html form
 from flask_wtf import FlaskForm
 from wtforms import StringField, BooleanField, SubmitField,SelectField
-from wtforms.validators import DataRequired, Email
+from wtforms.validators import DataRequired, Email, InputRequired
 from flask_bootstrap import Bootstrap
 
 # extends FlaskForm
 class LoginForm(FlaskForm):
     # first para is label
-    email = StringField('Email address')
-    username = StringField('Nickname')
+    email = StringField('Email')
+    username = StringField('name')
     submit = SubmitField('Go to play')
 
 # class SentenceForm(FlaskForm):

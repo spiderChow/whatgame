@@ -1,54 +1,57 @@
 <!DOCTYPE html>
 {% import "bootstrap/wtf.html" as wtf %}
-<!-- saved from url=(0051)https://getbootstrap.com/docs/4.0/examples/sign-in/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="{{ url_for('static', filename='bootstrap-solid.svg') }}">
-
-    <title>Signin Template for Bootstrap</title>
+    <title>Corpus Game</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{ url_for('static', filename='signin.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/how.css') }}" rel="stylesheet">
   </head>
 
   <body class="text-center">
     <div class="container">
-     
-      <div class="row">
-        <div class="col-md-4">
-        </div>
-        <div class="col-md-4">
-         <!--  <img class="mb-4" src="{{ url_for('static', filename='bootstrap-solid.svg') }}" alt="" width="72" height="72"> -->
-          <h2 class="mb-3 font-weight-normal">How to play? </h2>
-          <p class="mb-3">Please input as many questions as possible(ERP topic). Every time you enter a question,
-          we score you. If your question is different with others, you will get high score.The lower the overlap, the higher the score.</p>
-          <form class="form-signin" method='POST'>
-              {{ form.hidden_tag() }}
-              {{ form.email(class="form-control mb-3",id="inputEmail",placeholder="Email address",type="email") }}
+     <div class="row">
+         <img src="{{ url_for('static', filename='imgs/SAP logo.png') }}"  alt="">
+      </div>
 
-              {% for message in get_flashed_messages() %}
+      <div class="row">
+        <div class="col-md-5">
+          <img src="{{ url_for('static', filename='imgs/Page 2 slice.png') }}"  alt="">
+        </div>
+
+        <div class="col-md-5">
+          <h2 class="mb-3 font-weight-normal">How To Play? </h2>
+          <ul class="mb-3">
+            <li>Please input as many questions as possible(ERP topic). </li>
+            <li>Every time you enter a question,we score you. </li>
+            <li>If your question is different with others, you will get high score.The lower the overlap, the higher the score.</li>
+          </ul>
+
+          <form class="form-signin" action='' method='POST'>
+              {{ form.hidden_tag() }}
+              {{ form.csrf_token }}
+              {{ form.email(class="form-control mb-3",id="email",placeholder="Email Address",type="email",required="required") }}
+              <!-- {% for message in get_flashed_messages() %}
               <div class="alert alert-warning">
                   <button type="button" class="close" data-dismiss="alert">&times;</button>
                   {{ message }}
               </div>
-              {% endfor %}
-              
-              {{ form.username(id="inputNickname", class="form-control mb-3",placeholder="Nickname",type="text") }}
-              
+              {% endfor %} -->
+              {{ form.username(id="name", class="form-control mb-3",placeholder="Nick Name",type="text") }}
               {{ form.submit(class="btn btn-lg btn-primary btn-block",type="submit") }}
-               
           </form>
         </div>
-        <div class="col-md-4">
-       
+
+        <div class="col-md-2">
         </div>
       </div>
     </div>
+  <script src="{{url_for('static',filename='jquery.min.js')}}"></script>  
+ 
 </body>
-</script></html>
+
+</html>

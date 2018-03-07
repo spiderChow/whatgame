@@ -1,23 +1,17 @@
 <!DOCTYPE html>
-<!-- saved from url=(0052)https://getbootstrap.com/docs/4.0/examples/checkout/ -->
+
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
-
     <title>Single Player</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{ url_for('static', filename='form-validation.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/form-validation.css') }}" rel="stylesheet">
   </head>
-  <body class="bg-light">
-    
-
+  <body >
     <div class="container">
       <div class="row">
 
@@ -27,8 +21,6 @@
           {% else %}
           <span class="badge badge-info"><a href="{{url_for('main.login')}}">Sign In</a></span>
           {% endif %}
-          
-    
           {% if current_user.is_authenticated %}  
           <ul class="list-group list-group-flush">
            <li class='list-group-item d-flex justify-content-between lh-condensed bg-white text-dark '>
@@ -42,59 +34,42 @@
           </ul>
           {% endif %}
           <ul class="list-group mb-3 list-group-flush" id="rank">
-           
           </ul>
-        </div>    
+        </div>
+
+
         <div class="col-md-8 order-md-1">
           <div class="py-5 text-center">
-            <!-- <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='bootstrap-solid.svg') }}" alt="" width="72" height="72"> -->
-            <!-- <h2>Here are some topics for your reference</h2>
-            
-            <div class="btn-group">
-            <button type="button " class="btn btn-primary btn-outline-info " disabled >Finance</button>
-            <button type="button" class="btn btn-primary btn-outline-info ml-4 " disabled >CRM</button>
-            <button type="button" class="btn btn-primary btn-outline-info ml-4 " disabled>Sales</button>
-            <button type="button" class="btn btn-primary btn-outline-info ml-4 " disabled>OMS</button>
-            </div>  -->
           </div>
           <h4 class="mb-3">Here is an example:</h4>
           <p class="text-muted mb-5">Show me the sales amount of iPhoneX last month.</p>
-          <form class="needs-validation" novalidate="" action="{{ url_for('main.dump_sentence') }}" method="get">
-            {% for message in get_flashed_messages() %}
+          <form class="needs-validation">
+            <!-- {% for message in get_flashed_messages() %}
             <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 {{ message }}
             </div>
-            {% endfor %}
-             
+            {% endfor %} -->
             <div class="row mb-3">
-                <div class="col-md-3">    
-                  <div class="dropdown mb-3">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                      {% if session['topic'] %}
-                      {{ session['topic'] }}
-                      {% else %}
-                        Topics  
-                      {% endif %}
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-                      <a class="dropdown-item" href="#">CRM</a>
-                      <a class="dropdown-item" href="#">Sales</a>
-                      <a class="dropdown-item" href="#">OMS</a>
-                      <textarea name='topic-selected' style="display:none;">{% if session['topic'] %}{{ session['topic'] }}{% endif %}</textarea>
-                     
-                      
-                     
-                    </div>
+              <div class="col-md-3">    
+                <div class="dropdown mb-3">
+                  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                    {% if session['topic'] %}
+                    {{ session['topic'] }}
+                    {% else %}
+                      Topics  
+                    {% endif %}
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">CRM</a>
+                    <a class="dropdown-item" href="#">Sales</a>
+                    <a class="dropdown-item" href="#">OMS</a>
+                   <!--  <textarea name='topic-selected' style="display:none;">{% if session['topic'] %}{{ session['topic'] }}{% endif %}</textarea> -->
                   </div>
                 </div>
-                <div class="col-md-5 ">
-                  <!-- <label for="sentence">Try to type a question here.</label> -->
-                  <input type="text" class="form-control" id="sentence" placeholder="Try to type a question here." required="" name="sentence">
-                  <div class="invalid-feedback">
-                    Please enter your sentence.
-                  </div>
+              </div>
+              <div class="col-md-5 ">
+                <input type="text" class="form-control" id="sentence" placeholder="Try to type a question here." required="" name="sentence">
                 </div>
             </div>
             
@@ -103,18 +78,6 @@
           </form>
         </div>
       </div>
-
-
-     
-
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">© 2017-2018 SMB</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
-        </ul>
-      </footer>
     </div>
 
     <!-- Bootstrap core JavaScript
@@ -161,27 +124,50 @@
         });
     </script>
     <script type=text/javascript>
-        // window.setTimeout(function(){
-        // $('[data-dismiss="alert"]').alert('close');
-        // },2000);
+      $(document).ready(function(){
+        $('form').submit(function(e) {
+          e.preventDefault();
+          topic = $('#dropdownMenuButton').text().trim();
+          sentence = $('#sentence').val().trim();
+          alert(topic+sentence);
+
+          $.ajax({
+                
+                type: "POST",
+                dataType: "json",
+                data: JSON.stringify({"sentence":sentence,"topic":topic}),
+                url:"{{url_for('main.dump_sentence')}}",
+                contentType: 'application/json; charset=utf-8',
+                success: function(callback){
+                  alert(callback.success+" "+callback.score);
+                  $('#modal').modal('show');
+                }
+            });
+        });
         
         $('.dropdown-menu').on('click', function(e) {
          var $target = $(e.target);
-         $target.is('a') && $('#dropdownMenuButton').text($target.text())
-         && $('textarea').text($target.text())
-        })
-
-        $(document).ready(  
-            function() {  
-                $("#sentence").keydown(function(event) {  
-                    if (event.keyCode == 13) {  
-                        $("#submit").trigger("click");  
-                    }  
-                })  
-            }  
-        ); 
-   
+         $target.is('a') && $('#dropdownMenuButton').text($target.text());
+        });
+      }); 
     </script>
-  
-
+    <!-- Modal -->
+  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body></html>
