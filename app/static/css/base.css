@@ -1,6 +1,6 @@
 body {
   height: 100%;
-  padding-top: 0px;
+  padding: 0px;
   background-color: #d6f1ee;
 }
 
@@ -20,7 +20,7 @@ body {
 
 }
 .btn {
-  width: 70%;
+  /*width: 70%;*/
   border: none;
  
   background: -webkit-linear-gradient(135deg, #40cb7f, #00bfac); /* Safari 5.1 - 6.0 */
@@ -30,7 +30,7 @@ body {
 
 }
 .row{
-  padding-top: 10px;
+  padding: 10px 0px 0px 0px;
   text-align: left;
   color: #006677;
 }
