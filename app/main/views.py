@@ -1,13 +1,13 @@
 from datetime import datetime
 from flask import render_template, session, redirect, url_for,request, jsonify, flash
-from flask_login import login_required
-from flask.ext.login import login_user,logout_user, current_user
 
 from . import main
 from .forms import LoginForm
 from .. import db
 from ..models import User, Sentence
+import logging
 
+logging.basicConfig(level=logging.INFO,filename='whatgame.log',format='%(asctime)s :%(levelname)s - %(message)s')
 
 @main.route('/')
 def home():
@@ -18,27 +18,27 @@ def how_to_play():
     form = LoginForm()
     print(request.method)
     if form.validate_on_submit():
+        # get data from POST
         email = request.form['email']
         username = request.form['username']
-        session['email'] = email
+        # query the DB for the email
         user = User.query.filter_by(email=email).first()
+
         if user is None:
             # the user is new-comer
             if username is None or len(username)==0:
                 # but fails to enter a name
                 username = email.split("@")[0]
-
-                print(email)
-                print(username)
+            # save the new-comer into DB
             user = User(email=email,username=username)
-
             db.session.add(user)
             db.session.commit()
-            session['known']=False
-        else:
-            # the user is already met 
-            session['known']=True
+            
+        #put the login user into session
+        username = user.username
         session['username'] = username
+        session['email'] = email
+        logging.info(email+" log in named as " +username)
 
         return redirect(url_for('.play'))
     return render_template('how_to_play.html',form=form)
@@ -47,6 +47,11 @@ def how_to_play():
 @main.route('/play')
 def play():
     return render_template('play.html')
+
+
+##################
+##### three another ajax route methods
+##################
 
 @main.route('/_rank_list',methods=['POST'])
 def rank_list():
@@ -83,19 +88,18 @@ def dump_sentence():
     print(topic+sentence)
     if topic is not None and len(topic)>0:
         if sentence is not None and len(sentence)>0:
-            user_id = current_user.id
+            user = User.query.filter_by(email=session['email']).first()
+            user_id = user.id
             sentence = Sentence(topic=topic, content=sentence, user_id=user_id)
             
             from app.main.similarity import similar 
             sim_sentence, cosine = similar(sentence.content)
-
-            user = current_user
-            user.questionamount = user.questionamount+1
             
             if cosine == 0 :
                 user.score = user.score + 0
                 return jsonify(success=2,score=user.score)
             else:
+                user.questionamount = user.questionamount+1
                 user.score = user.score+round(10*(1/cosine))
                 
                 db.session.add(sentence)
@@ -108,5 +112,6 @@ def dump_sentence():
 @main.route('/logout')
 def logout():
     session.pop('username',None)
+    session.pop('email',None)
     return redirect(url_for('main.home'))
 

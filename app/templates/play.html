@@ -6,17 +6,17 @@
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="{{ url_for('static', filename='css/play.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css')}}" rel="stylesheet" >
+    
   </head>
   <body >
-    <div class="container">
+    <div class="container-fluid">
       
-
-
-      <div class="row">
-        <div class="col-9">
-          <div class="row">
+      <div class="row" id="bigrow" >
+        <div class="col-1">
+        </div>
+        <div class="col-7" id="leftcol">
+          <div class="row" id="sap">
               <img src="{{ url_for('static', filename='imgs/SAP logo.png') }}">
           </div>
           <div class="row">
@@ -59,16 +59,19 @@
             </form>
           </div>
         </div>
+        <div class="col-1">
+        </div>
         <!-- The Ranking List  -->
         <div class="col-3" id="rankcol">    
            
 
-          <ul class="list-group" id='userInfo'>
-           <li class='list-group-item d-flex justify-content-between align-items-center'>
+          <ul class="list-group" >
+           <li class='list-group-item d-flex justify-content-between align-items-center' id='userInfo'>
               <img src="{{ url_for('static', filename='imgs/Slice_user.png') }}" width="78" height="78" class='p-2'>
-              <div class='p-2 flex-column'>
+              <div class='p-2 flex-column' >
                   <h5 class='p-2'><span class='name'></span><a id='logout' href="{{url_for('main.logout')}}">  
-                    <i class="fa fa-power-off ml-4" ></i></a></h5>
+                    <i class="icon-off" ></i></a></h5>
+
                   <div class='p-2'>Rank:  <span class='rank'></span></div>
                   <div class='p-2'>Score:  <span class='score'></span></div>
                   <div class='p-2'>Question Amount:  <span class='q-amount'></span></div>
@@ -77,9 +80,22 @@
           </ul>
         
           <div id="rankspliter">Ranking List</div>
-
-          <ul class="list-group mb-3" id="rank">
-          </ul>
+          <div id="scroll"> 
+            <ul class="list-group list-group-flush" id="rank">
+              <!-- <li class='list-group-item d-flex justify-content-around lh-condensed'>
+                <div>
+                  <h1 class='align-self-center'></h1>
+                  <p>Rank</p>
+                </div>
+                <div class='d-flex flex-column'>
+                  <div class='p-2'><span class='username'></span></div>
+                  <div class='p-2'>Score:  <span class='score'></span></div>
+                  <div class='p-2'>Question amount:  <span class='q-amount'></span></div>
+                </div>
+              </li> -->
+            </ul> 
+          </div>
+          
         </div>
 
 
@@ -99,7 +115,7 @@
       $(document).ready(function(){
         $('form').submit(function(e) {
           e.preventDefault();
-          topic = $('#dropdownMenuButton').text().trim();
+          topic = $('#dropdownMenuButton').val().trim();
           sentence = $('#sentence').val().trim();
 
           $.ajax({
@@ -129,10 +145,10 @@
         });
 
         
-        $('.dropdown-menu').on('click', function(e) {
-         var $target = $(e.target);
-         $target.is('a') && $('#dropdownMenuButton').text($target.text());
-        });
+        // $('.dropdown-menu').on('click', function(e) {
+        //  var $target = $(e.target);
+        //  $target.is('a') && $('#dropdownMenuButton').text($target.text());
+        // });
         $('#userInfo').on("loadUser", function(){
           $.ajax({
               type: "POST",
@@ -157,14 +173,15 @@
               contentType: 'application/json; charset=utf-8',
               success: function(callback){
                 //alert(callback.ranklist);
-                $("#rank").empty();
+                //$("#rank").empty();
                 var count = callback.ranklist.length;
                 if (count>7){
                   count = 7;
                 }
                 while(count>0){
-                  $("#rank").append("<li class='list-group-item d-flex justify-content-between lh-condensed'><div><h1 class='align-self-center'></h1>Rank</div><div class='d-flex flex-column'><div class='p-2'><span class='username'></span></div><div class='p-2'>Score:  <span class='score'></span></div><div class='p-2'>Question amount:  <span class='q-amount'></span></div></div></li>")
+                  $("#rank").append("<li class='list-group-item d-flex justify-content-around lh-condensed'><div><h1 class='align-self-center'></h1><p>Rank</p></div><div class='d-flex flex-column'><div class='p-2'><span class='username'></span></div><div class='p-2'>Score:  <span class='score'></span></div><div class='p-2'>Question amount:  <span class='q-amount'></span></div></div></li>")
                   count--;
+
                 }
                 $("#rank").find("h1").each(function(index,value){
                   $(this).text(index+1);

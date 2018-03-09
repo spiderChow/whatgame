@@ -1,18 +1,19 @@
-body {
-  height: 100%;
-  padding: 0px;
-  background-color: #d6f1ee;
-}
-
 @font-face{
   font-family: 'OratorStd';
+  src:url('../OratorStd.otf');
   src:url('../Orator Std Medium.ttf') format('truetype'), 
       url('../oratorstd.woff') format('woff'),
       url('../OratorStd.otf') format('opentype');
+  font-weight:normal;font-style:normal;
 }
 
+body {
+  padding: 0px;
+  background-color: #d6f1ee;
+  font-family: 'helvetica' ;
+}
 #corpus-game{
-  font-family: :'OratorStd' ;
+  font-family: 'OratorStd' ;
   font-size: 64px;
   color: #006677;
   text-align: -moz-center;
@@ -28,9 +29,12 @@ body {
   background: -moz-linear-gradient(135deg, #40cb7f, #00bfac); /* Firefox 3.6 - 15 */
   background: linear-gradient(135deg, #40cb7f, #00bfac); /* 标准的语法 */
 
+  font-family: 'OratorStd' ;
+
 }
 .row{
   padding: 10px 0px 0px 0px;
+  
   text-align: left;
   color: #006677;
 }

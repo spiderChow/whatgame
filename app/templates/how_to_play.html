@@ -2,7 +2,7 @@
 {% import "bootstrap/wtf.html" as wtf %}
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
     <title>Corpus Game</title>
 
     <!-- Bootstrap core CSS -->
@@ -18,13 +18,13 @@
          <img src="{{ url_for('static', filename='imgs/SAP logo.png') }}"  alt="">
       </div>
 
-      <div class="row">
+      <div class="row mt-5">
         <div class="col-md-5">
           <img src="{{ url_for('static', filename='imgs/Page 2 slice.png') }}"  alt="">
         </div>
 
         <div class="col-md-5">
-          <h2 class="mb-3 font-weight-normal">How To Play? </h2>
+          <h2 class="mb-3 font-weight-normal" id="howtoplay">How To Play? </h2>
           <ul class="mb-3">
             <li>Please input as many questions as possible(ERP topic). </li>
             <li>Every time you enter a question,we score you. </li>

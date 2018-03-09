@@ -1,34 +1,34 @@
 @import url(base.css);
 
-
 .bubble{
-	 
 	margin: 30px auto;
-	
-	background-color: white;
-
-    border-radius: 15px;  
+	background-color: #b7e6e1;
+    border-radius: 17px;  
 	word-wrap: break-word; /* return a line i for url content*/
-
 }
 .bubble h4{
      margin-top: 15px;
      margin-left: 10px;
+    
+	 font-size:28px;
+	 color:#65a8a5;
+	
 }
 .bubble p{
-     
+     font-size:20px;
+		color:#006677;
      margin-left: 10px;
 }
 .solid-line{
 	padding-top: 0px;
 	width:100%%;
 	height: 1px;
-	background-color: black;
+	background-color: #b7e6e1;
 	margin:30px auto;
 }
 
 .bubble::before{
-	border-color: transparent  transparent transparent white ;
+	border-color: transparent  transparent transparent #b7e6e1 ;
     border-style: solid;
     border-width: 20px 0px 20px 20px;
     top: 25px;
@@ -36,19 +36,71 @@
     transform: rotate(45deg);
     position: absolute;
     left: -15px;
-
+}
+label{
+	font-size:20px;
+	color:#454545;
 }
 form{
 	width: 100%;
+	margin: 30px;
 }
+
 #rankcol{
-	width: 100%;
+	
+	margin:0;
+	padding-right:  20px;
 }
-.container{
-	float: right;
-	margin-right:0px; 
-	padding-right: 0px;
+#bigrow{
+	padding:0;
+	margin: 0;
 }
+#rank{
+	height: 500px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+#userInfo{
+	background-color:#88cfcc;
+	height: 180px;
+}
+#rank li{
+	background-color: #b8e7e5;
+	color:#006677;
+	font-size: 14px;
+	height: 102px;
+	padding: 0;
+}
+#rank .username{
+	font-size: 20px;
+}
+
+#rank h1{
+	font-size:48px;
+	color:#00926f;
+}
+#rank p{
+	font-size:12px;
+	color:#00926f;
+}
+#rank div{
+	padding: 3px !important;
+	margin: 0;
+}
+#rank span{
+	padding: 0;
+	margin: 0;
+}
+#sap{
+	margin-bottom: 50px;
+}
+
+.container-fluid{
+	margin:0 0 auto 20px;
+	padding:0 0 auto 10px;
+}
+
 a:link{
 	color: #006677;
 	text-decoration: none;
@@ -67,4 +119,10 @@ a:active{
 }
 #rankspliter{
 	text-align: center;
+	background-color:#49b5ae;
+	font-family:Helvetica;
+	font-weight: bold;
+	font-size:20px;
+	color:#004753;
+	
 }
