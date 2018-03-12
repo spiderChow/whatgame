@@ -9,6 +9,8 @@
 
 body {
   padding: 0px;
+  margin: 0px;
+  width: 100%;
   background-color: #d6f1ee;
   font-family: 'helvetica' ;
 }
@@ -33,7 +35,7 @@ body {
 
 }
 .row{
-  padding: 10px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
   
   text-align: left;
   color: #006677;

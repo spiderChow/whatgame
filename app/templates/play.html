@@ -21,7 +21,7 @@
           </div>
           <div class="row">
             <div class="col-4" > 
-              <img src="{{ url_for('static', filename='imgs/Slice_guide.png') }}"  class="avatar">
+              <img src="{{ url_for('static', filename='imgs/Slice_guide.png') }}"  class="avatar" >
             </div>
             <div class="col-7 bubble" > 
               <h4>Here is an example:</h4>
@@ -38,9 +38,13 @@
                 <div class="col-3 form-group">
                   <label for="dropdownMenuButton"> Topic: </label>
                   <select class="form-control custom-select d-block w-100" id="dropdownMenuButton" required="">
-                    <option>CRM</option>
+                    <option>Purchasing</option>
                     <option>Sales</option>
-                    <option>OMS</option>
+                    <option>Financials</option>
+                    <option>Inventory</option>
+                    <option>Banking</option>
+                    <option>Master Data</option>
+                    <option>Others</option>
                   </select>                  
                 </div>                 
                  
@@ -50,10 +54,15 @@
                 </div>
               </div>
               <div class="form-row ">
-                <div class="col-9">
+                <div class="col-4">
                 </div>
-                <div class="col-3 ">
-                  <button class="btn btn-primary btn-lg btn-block" type="submit" id="submit">Submit</button>
+                <div class="col-8 row ">
+                  <div class="col-8" id="alert-div">
+                    
+                  </div>
+                  
+                  <div class="col-4"><button class="btn btn-primary btn-lg btn-block p-2" type="submit" id="submit">Submit</button></div>
+                  
                 </div>
               </div>
             </form>
@@ -67,7 +76,7 @@
 
           <ul class="list-group" >
            <li class='list-group-item d-flex justify-content-between align-items-center' id='userInfo'>
-              <img src="{{ url_for('static', filename='imgs/Slice_user.png') }}" width="78" height="78" class='p-2'>
+              <img src="{{ url_for('static', filename='imgs/Slice_user.png') }}"  class='p-2'>
               <div class='p-2 flex-column' >
                   <h5 class='p-2'><span class='name'></span><a id='logout' href="{{url_for('main.logout')}}">  
                     <i class="icon-off" ></i></a></h5>
@@ -112,7 +121,9 @@
     
    
     <script type=text/javascript>
+      
       $(document).ready(function(){
+        
         $('form').submit(function(e) {
           e.preventDefault();
           topic = $('#dropdownMenuButton').val().trim();
@@ -125,19 +136,19 @@
                 url:"{{url_for('main.dump_sentence')}}",
                 contentType: 'application/json; charset=utf-8',
                 success: function(callback){
-                  //alert(callback.success+" "+callback.score);
+                 
                   var success = callback.success;
+                  $('#alert-div').append('<div class="alert alert-warning  alert-dismissible fade show " role="alert" ><p class="alert-p"></p><button type="button" class="close" data-dismiss="alert" aria-label="Close" id="close"><span aria-hidden="true">&times;</span></button></div>');
                   if(success==1){
-                    $('#modalLabel').text("Success");
-                    $('.modal-body').text("Your score is now at "+callback.score);
+                    $('.alert-p').text("Great question! You earned "+callback.score+" points!");
+                    $('#rank').trigger('loadRank');
+                    $('#userInfo').trigger('loadUser');
                   }else if (success==2){
-                    $('#modalLabel').text("Retry please!");
-                    $('.modal-body').text("Look like your sentence too simple!");
+                    $('.alert-p').text("Looks your question have no relationship with this topic. Please try again!");
                   }else{
-                    $('#modalLabel').text("Failure");
-                    $('.modal-body').text("Something wrong!");
+                   
+                    $('.alert-p').text("Something wrong!");
                   }
-                  $('#modal').modal('show');
                   
 
                 }
@@ -175,8 +186,8 @@
                 //alert(callback.ranklist);
                 $("#rank").empty();
                 var count = callback.ranklist.length;
-                if (count>7){
-                  count = 7;
+                if (count>20){
+                  count = 20;
                 }
                 while(count>0){
                   $("#rank").append("<li class='list-group-item d-flex justify-content-around lh-condensed'><div><h1 class='align-self-center'></h1><p>Rank</p></div><div class='d-flex flex-column'><div class='p-2'><span class='username'></span></div><div class='p-2'>Score:  <span class='score'></span></div><div class='p-2'>Question amount:  <span class='q-amount'></span></div></div></li>")
@@ -202,10 +213,10 @@
         })
 
         $('#rank').trigger('loadRank');
-        $('#modalClose').on('click',function(){
-          $('#rank').trigger('loadRank');
-          $('#userInfo').trigger('loadUser');
-        });
+        // $('#submit').on('click',function(){
+        //   $('#rank').trigger('loadRank');
+        //   $('#userInfo').trigger('loadUser');
+        // });
 
       }); 
     </script>
