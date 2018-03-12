@@ -1,10 +1,10 @@
 from . import db
-from flask_login import UserMixin, current_user
 
 
 class Sentence(db.Model):
     __tablename__ = 'sentences'
     id = db.Column(db.Integer, nullable=False, primary_key=True, autoincrement=True)
+   
     # user_id = db.Column(db.Integer, nullable=False) # foreign key???
     topic = db.Column(db.String(20), nullable=False, server_default='')
     content = db.Column(db.String(100), nullable=False, server_default='')
@@ -14,7 +14,7 @@ class Sentence(db.Model):
     def __repr__(self):
         return '<SEN %r>' % self.content
 
-class User(UserMixin, db.Model):
+class User(db.Model):
     
     __tablename__ = 'users'
 

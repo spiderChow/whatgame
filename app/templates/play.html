@@ -125,7 +125,7 @@
                 url:"{{url_for('main.dump_sentence')}}",
                 contentType: 'application/json; charset=utf-8',
                 success: function(callback){
-                  alert(callback.success+" "+callback.score);
+                  //alert(callback.success+" "+callback.score);
                   var success = callback.success;
                   if(success==1){
                     $('#modalLabel').text("Success");
@@ -173,7 +173,7 @@
               contentType: 'application/json; charset=utf-8',
               success: function(callback){
                 //alert(callback.ranklist);
-                //$("#rank").empty();
+                $("#rank").empty();
                 var count = callback.ranklist.length;
                 if (count>7){
                   count = 7;

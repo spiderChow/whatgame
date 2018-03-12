@@ -1056,3 +1056,195 @@
 2018-03-09 18:00:13,906 :INFO - 127.0.0.1 - - [09/Mar/2018 18:00:13] "GET /static/css/base.css HTTP/1.1" 304 -
 2018-03-09 18:00:14,078 :INFO - 127.0.0.1 - - [09/Mar/2018 18:00:14] "POST /user_info HTTP/1.1" 200 -
 2018-03-09 18:00:14,097 :INFO - 127.0.0.1 - - [09/Mar/2018 18:00:14] "POST /_rank_list HTTP/1.1" 200 -
+2018-03-12 13:44:53,391 :INFO - 127.0.0.1 - - [12/Mar/2018 13:44:53] "GET /play HTTP/1.1" 200 -
+2018-03-12 13:44:53,522 :INFO - 127.0.0.1 - - [12/Mar/2018 13:44:53] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 -
+2018-03-12 13:44:53,531 :INFO - 127.0.0.1 - - [12/Mar/2018 13:44:53] "GET /static/js/popper.min.js HTTP/1.1" 304 -
+2018-03-12 13:44:53,558 :INFO - 127.0.0.1 - - [12/Mar/2018 13:44:53] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 -
+2018-03-12 13:44:53,573 :INFO - 127.0.0.1 - - [12/Mar/2018 13:44:53] "GET /static/imgs/Slice_guide.png HTTP/1.1" 304 -
+2018-03-12 13:44:53,590 :INFO - 127.0.0.1 - - [12/Mar/2018 13:44:53] "GET /static/imgs/Slice_user.png HTTP/1.1" 304 -
+2018-03-12 13:44:53,607 :INFO - 127.0.0.1 - - [12/Mar/2018 13:44:53] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 -
+2018-03-12 13:44:53,627 :INFO - 127.0.0.1 - - [12/Mar/2018 13:44:53] "GET /static/css/play.css HTTP/1.1" 304 -
+2018-03-12 13:44:53,645 :INFO - 127.0.0.1 - - [12/Mar/2018 13:44:53] "GET /static/js/jquery.min.js HTTP/1.1" 304 -
+2018-03-12 13:44:53,663 :INFO - 127.0.0.1 - - [12/Mar/2018 13:44:53] "GET /static/imgs/SAP%20logo.png HTTP/1.1" 304 -
+2018-03-12 13:44:53,707 :INFO - 127.0.0.1 - - [12/Mar/2018 13:44:53] "GET /static/css/base.css HTTP/1.1" 304 -
+2018-03-12 13:44:54,112 :INFO - 127.0.0.1 - - [12/Mar/2018 13:44:54] "POST /user_info HTTP/1.1" 200 -
+2018-03-12 13:44:54,172 :INFO - 127.0.0.1 - - [12/Mar/2018 13:44:54] "POST /_rank_list HTTP/1.1" 200 -
+2018-03-12 13:45:34,456 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:34] "GET /play HTTP/1.1" 200 -
+2018-03-12 13:45:34,611 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:34] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 -
+2018-03-12 13:45:34,638 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:34] "GET /static/css/play.css HTTP/1.1" 200 -
+2018-03-12 13:45:34,652 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:34] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 -
+2018-03-12 13:45:34,686 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:34] "GET /static/js/jquery.min.js HTTP/1.1" 304 -
+2018-03-12 13:45:34,720 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:34] "GET /static/js/popper.min.js HTTP/1.1" 304 -
+2018-03-12 13:45:34,792 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:34] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 -
+2018-03-12 13:45:34,823 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:34] "GET /static/imgs/SAP%20logo.png HTTP/1.1" 304 -
+2018-03-12 13:45:34,855 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:34] "GET /static/imgs/Slice_guide.png HTTP/1.1" 304 -
+2018-03-12 13:45:34,891 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:34] "GET /static/imgs/Slice_user.png HTTP/1.1" 304 -
+2018-03-12 13:45:34,917 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:34] "GET /static/css/base.css HTTP/1.1" 304 -
+2018-03-12 13:45:35,668 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:35] "POST /user_info HTTP/1.1" 200 -
+2018-03-12 13:45:35,760 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:35] "POST /_rank_list HTTP/1.1" 200 -
+2018-03-12 13:45:50,318 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:50] "GET /play HTTP/1.1" 200 -
+2018-03-12 13:45:50,469 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:50] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 -
+2018-03-12 13:45:50,520 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:50] "GET /static/css/play.css HTTP/1.1" 200 -
+2018-03-12 13:45:50,555 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:50] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 -
+2018-03-12 13:45:50,615 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:50] "GET /static/js/jquery.min.js HTTP/1.1" 304 -
+2018-03-12 13:45:50,633 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:50] "GET /static/js/popper.min.js HTTP/1.1" 304 -
+2018-03-12 13:45:50,695 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:50] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 -
+2018-03-12 13:45:50,740 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:50] "GET /static/imgs/SAP%20logo.png HTTP/1.1" 304 -
+2018-03-12 13:45:50,765 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:50] "GET /static/imgs/Slice_guide.png HTTP/1.1" 304 -
+2018-03-12 13:45:50,815 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:50] "GET /static/imgs/Slice_user.png HTTP/1.1" 304 -
+2018-03-12 13:45:50,844 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:50] "GET /static/css/base.css HTTP/1.1" 304 -
+2018-03-12 13:45:51,677 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:51] "POST /user_info HTTP/1.1" 200 -
+2018-03-12 13:45:51,782 :INFO - 127.0.0.1 - - [12/Mar/2018 13:45:51] "POST /_rank_list HTTP/1.1" 200 -
+2018-03-12 13:59:06,048 :INFO - junying.zhou@sap.com log in named as Junying
+2018-03-12 15:07:22,471 :INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2018-03-12 15:07:22,474 :INFO -  * Restarting with stat
+2018-03-12 15:07:23,399 :WARNING -  * Debugger is active!
+2018-03-12 15:07:23,404 :INFO -  * Debugger PIN: 204-108-044
+2018-03-12 15:07:41,761 :INFO - 127.0.0.1 - - [12/Mar/2018 15:07:41] "GET / HTTP/1.1" 200 -
+2018-03-12 15:07:41,889 :INFO - 127.0.0.1 - - [12/Mar/2018 15:07:41] "GET /static/css/index.css HTTP/1.1" 304 -
+2018-03-12 15:07:41,945 :INFO - 127.0.0.1 - - [12/Mar/2018 15:07:41] "GET /static/imgs/Index.png HTTP/1.1" 304 -
+2018-03-12 15:07:41,961 :INFO - 127.0.0.1 - - [12/Mar/2018 15:07:41] "GET /static/Orator%20Std%20Medium.ttf HTTP/1.1" 304 -
+2018-03-12 16:04:46,293 :INFO -  * Detected change in '/home/chow/Documents/whatgame/app/main/views.py', reloading
+2018-03-12 16:04:46,390 :INFO -  * Restarting with stat
+2018-03-12 16:04:47,231 :WARNING -  * Debugger is active!
+2018-03-12 16:04:47,232 :INFO -  * Debugger PIN: 204-108-044
+2018-03-12 16:04:54,623 :INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2018-03-12 16:04:54,624 :INFO -  * Restarting with stat
+2018-03-12 16:04:55,237 :WARNING -  * Debugger is active!
+2018-03-12 16:04:55,237 :INFO -  * Debugger PIN: 204-108-044
+2018-03-12 16:05:01,779 :INFO - 127.0.0.1 - - [12/Mar/2018 16:05:01] "GET / HTTP/1.1" 200 -
+2018-03-12 16:05:03,343 :INFO - 127.0.0.1 - - [12/Mar/2018 16:05:03] "GET /howtoplay HTTP/1.1" 200 -
+2018-03-12 16:05:03,452 :INFO - 127.0.0.1 - - [12/Mar/2018 16:05:03] "GET /static/css/how.css HTTP/1.1" 304 -
+2018-03-12 16:05:03,463 :INFO - 127.0.0.1 - - [12/Mar/2018 16:05:03] "GET /static/imgs/Page%202%20slice.png HTTP/1.1" 304 -
+2018-03-12 16:05:07,689 :INFO - junying.zhou@sap.com log in named as Junying
+2018-03-12 16:05:07,714 :INFO - 127.0.0.1 - - [12/Mar/2018 16:05:07] "POST /howtoplay HTTP/1.1" 302 -
+2018-03-12 16:05:07,784 :INFO - 127.0.0.1 - - [12/Mar/2018 16:05:07] "GET /play HTTP/1.1" 200 -
+2018-03-12 16:05:07,955 :INFO - 127.0.0.1 - - [12/Mar/2018 16:05:07] "GET /static/font/fontawesome-webfont.woff?v=3.2.1 HTTP/1.1" 304 -
+2018-03-12 16:05:08,130 :INFO - 127.0.0.1 - - [12/Mar/2018 16:05:08] "POST /user_info HTTP/1.1" 200 -
+2018-03-12 16:05:08,167 :INFO - 127.0.0.1 - - [12/Mar/2018 16:05:08] "POST /_rank_list HTTP/1.1" 200 -
+2018-03-12 16:05:34,409 :INFO - 127.0.0.1 - - [12/Mar/2018 16:05:34] "POST /dump_sent HTTP/1.1" 200 -
+2018-03-12 16:05:39,355 :INFO - 127.0.0.1 - - [12/Mar/2018 16:05:39] "POST /_rank_list HTTP/1.1" 200 -
+2018-03-12 16:05:39,384 :INFO - 127.0.0.1 - - [12/Mar/2018 16:05:39] "POST /user_info HTTP/1.1" 200 -
+2018-03-12 16:06:11,054 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:11] "POST /dump_sent HTTP/1.1" 200 -
+2018-03-12 16:06:14,882 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:14] "POST /_rank_list HTTP/1.1" 200 -
+2018-03-12 16:06:14,930 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:14] "POST /user_info HTTP/1.1" 200 -
+2018-03-12 16:06:34,086 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:34] "GET /play HTTP/1.1" 200 -
+2018-03-12 16:06:34,174 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:34] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 -
+2018-03-12 16:06:34,191 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:34] "GET /static/css/play.css HTTP/1.1" 304 -
+2018-03-12 16:06:34,236 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:34] "GET /static/css/font-awesome.min.css HTTP/1.1" 304 -
+2018-03-12 16:06:34,275 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:34] "GET /static/js/jquery.min.js HTTP/1.1" 304 -
+2018-03-12 16:06:34,293 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:34] "GET /static/js/popper.min.js HTTP/1.1" 304 -
+2018-03-12 16:06:34,310 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:34] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 -
+2018-03-12 16:06:34,324 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:34] "GET /static/imgs/SAP%20logo.png HTTP/1.1" 304 -
+2018-03-12 16:06:34,354 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:34] "GET /static/imgs/Slice_guide.png HTTP/1.1" 304 -
+2018-03-12 16:06:34,379 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:34] "GET /static/imgs/Slice_user.png HTTP/1.1" 304 -
+2018-03-12 16:06:34,410 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:34] "GET /static/css/base.css HTTP/1.1" 304 -
+2018-03-12 16:06:34,716 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:34] "POST /user_info HTTP/1.1" 200 -
+2018-03-12 16:06:34,754 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:34] "POST /_rank_list HTTP/1.1" 200 -
+2018-03-12 16:06:42,199 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:42] "POST /dump_sent HTTP/1.1" 200 -
+2018-03-12 16:06:44,050 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:44] "POST /_rank_list HTTP/1.1" 200 -
+2018-03-12 16:06:44,079 :INFO - 127.0.0.1 - - [12/Mar/2018 16:06:44] "POST /user_info HTTP/1.1" 200 -
+2018-03-12 16:09:13,680 :INFO - 127.0.0.1 - - [12/Mar/2018 16:09:13] "GET /logout HTTP/1.1" 302 -
+2018-03-12 16:09:13,699 :INFO - 127.0.0.1 - - [12/Mar/2018 16:09:13] "GET / HTTP/1.1" 200 -
+2018-03-12 16:11:35,251 :INFO - 127.0.0.1 - - [12/Mar/2018 16:11:35] "GET /howtoplay HTTP/1.1" 200 -
+2018-03-12 16:12:03,946 :INFO - junying.zhou@sap.com log in named as Junying
+2018-03-12 16:12:03,963 :INFO - 127.0.0.1 - - [12/Mar/2018 16:12:03] "POST /howtoplay HTTP/1.1" 302 -
+2018-03-12 16:12:04,059 :INFO - 127.0.0.1 - - [12/Mar/2018 16:12:04] "GET /play HTTP/1.1" 200 -
+2018-03-12 16:12:04,783 :INFO - 127.0.0.1 - - [12/Mar/2018 16:12:04] "POST /user_info HTTP/1.1" 200 -
+2018-03-12 16:12:04,873 :INFO - 127.0.0.1 - - [12/Mar/2018 16:12:04] "POST /_rank_list HTTP/1.1" 200 -
+2018-03-12 16:13:02,846 :INFO - 127.0.0.1 - - [12/Mar/2018 16:13:02] "POST /dump_sent HTTP/1.1" 200 -
+2018-03-12 16:13:15,053 :INFO - 127.0.0.1 - - [12/Mar/2018 16:13:15] "POST /_rank_list HTTP/1.1" 200 -
+2018-03-12 16:13:15,087 :INFO - 127.0.0.1 - - [12/Mar/2018 16:13:15] "POST /user_info HTTP/1.1" 200 -
+2018-03-12 16:17:32,752 :INFO - 127.0.0.1 - - [12/Mar/2018 16:17:32] "GET /logout HTTP/1.1" 302 -
+2018-03-12 16:17:32,800 :INFO - 127.0.0.1 - - [12/Mar/2018 16:17:32] "GET / HTTP/1.1" 200 -
+2018-03-12 16:19:50,718 :INFO -  * Running on http://10.59.174.98:5000/ (Press CTRL+C to quit)
+2018-03-12 16:19:50,720 :INFO -  * Restarting with stat
+2018-03-12 16:19:51,343 :WARNING -  * Debugger is active!
+2018-03-12 16:19:51,344 :INFO -  * Debugger PIN: 204-108-044
+2018-03-12 16:20:02,834 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:02] "GET / HTTP/1.1" 200 -
+2018-03-12 16:20:05,729 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:05] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2018-03-12 16:20:05,795 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:05] "GET /static/css/index.css HTTP/1.1" 200 -
+2018-03-12 16:20:05,812 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:05] "GET /static/imgs/SAP%20logo.png HTTP/1.1" 200 -
+2018-03-12 16:20:05,848 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:05] "GET /static/css/base.css HTTP/1.1" 200 -
+2018-03-12 16:20:05,890 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:05] "GET /static/Orator%20Std%20Medium.ttf HTTP/1.1" 200 -
+2018-03-12 16:20:05,930 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:05] "GET /static/imgs/Index.png HTTP/1.1" 200 -
+2018-03-12 16:20:06,064 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:06] "GET /favicon.ico HTTP/1.1" 404 -
+2018-03-12 16:20:07,064 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:07] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 -
+2018-03-12 16:20:10,337 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:10] "GET / HTTP/1.1" 200 -
+2018-03-12 16:20:10,395 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:10] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2018-03-12 16:20:10,461 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:10] "GET /static/css/index.css HTTP/1.1" 200 -
+2018-03-12 16:20:10,485 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:10] "GET /static/imgs/SAP%20logo.png HTTP/1.1" 200 -
+2018-03-12 16:20:10,512 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:10] "GET /static/css/base.css HTTP/1.1" 200 -
+2018-03-12 16:20:10,567 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:10] "GET /static/Orator%20Std%20Medium.ttf HTTP/1.1" 200 -
+2018-03-12 16:20:10,593 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:10] "GET /static/imgs/Index.png HTTP/1.1" 200 -
+2018-03-12 16:20:10,651 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:10] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 -
+2018-03-12 16:20:18,731 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:18] "GET / HTTP/1.1" 200 -
+2018-03-12 16:20:18,930 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:18] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2018-03-12 16:20:18,983 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:18] "GET /static/css/index.css HTTP/1.1" 200 -
+2018-03-12 16:20:18,995 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:18] "GET /static/imgs/SAP%20logo.png HTTP/1.1" 200 -
+2018-03-12 16:20:19,024 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:19] "GET /static/css/base.css HTTP/1.1" 200 -
+2018-03-12 16:20:19,077 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:19] "GET /static/Orator%20Std%20Medium.ttf HTTP/1.1" 200 -
+2018-03-12 16:20:19,102 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:19] "GET /static/imgs/Index.png HTTP/1.1" 200 -
+2018-03-12 16:20:19,167 :INFO - 10.59.164.77 - - [12/Mar/2018 16:20:19] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 -
+2018-03-12 16:21:00,441 :INFO - 10.59.164.77 - - [12/Mar/2018 16:21:00] "GET /howtoplay? HTTP/1.1" 200 -
+2018-03-12 16:21:00,505 :INFO - 10.59.164.77 - - [12/Mar/2018 16:21:00] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2018-03-12 16:21:00,536 :INFO - 10.59.164.77 - - [12/Mar/2018 16:21:00] "GET /static/css/how.css HTTP/1.1" 200 -
+2018-03-12 16:21:00,554 :INFO - 10.59.164.77 - - [12/Mar/2018 16:21:00] "GET /static/js/jquery.min.js HTTP/1.1" 200 -
+2018-03-12 16:21:00,600 :INFO - 10.59.164.77 - - [12/Mar/2018 16:21:00] "GET /static/imgs/SAP%20logo.png HTTP/1.1" 200 -
+2018-03-12 16:21:00,607 :INFO - 10.59.164.77 - - [12/Mar/2018 16:21:00] "GET /static/imgs/Page%202%20slice.png HTTP/1.1" 200 -
+2018-03-12 16:21:00,633 :INFO - 10.59.164.77 - - [12/Mar/2018 16:21:00] "GET /static/css/base.css HTTP/1.1" 200 -
+2018-03-12 16:21:00,699 :INFO - 10.59.164.77 - - [12/Mar/2018 16:21:00] "GET /static/Orator%20Std%20Medium.ttf HTTP/1.1" 200 -
+2018-03-12 16:21:00,752 :INFO - 10.59.164.77 - - [12/Mar/2018 16:21:00] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 -
+2018-03-12 16:22:30,454 :INFO - eric.wang04@sap.com log in named as Eric Wang
+2018-03-12 16:22:30,472 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:30] "POST /howtoplay? HTTP/1.1" 302 -
+2018-03-12 16:22:30,575 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:30] "GET /play HTTP/1.1" 200 -
+2018-03-12 16:22:30,629 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:30] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2018-03-12 16:22:30,676 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:30] "GET /static/css/play.css HTTP/1.1" 200 -
+2018-03-12 16:22:30,682 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:30] "GET /static/css/font-awesome.min.css HTTP/1.1" 200 -
+2018-03-12 16:22:30,688 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:30] "GET /static/js/jquery.min.js HTTP/1.1" 200 -
+2018-03-12 16:22:30,735 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:30] "GET /static/css/base.css HTTP/1.1" 200 -
+2018-03-12 16:22:30,747 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:30] "GET /static/js/popper.min.js HTTP/1.1" 200 -
+2018-03-12 16:22:30,753 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:30] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+2018-03-12 16:22:30,802 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:30] "GET /static/imgs/SAP%20logo.png HTTP/1.1" 200 -
+2018-03-12 16:22:30,808 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:30] "GET /static/imgs/Slice_guide.png HTTP/1.1" 200 -
+2018-03-12 16:22:30,830 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:30] "GET /static/imgs/Slice_user.png HTTP/1.1" 200 -
+2018-03-12 16:22:30,841 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:30] "GET /static/Orator%20Std%20Medium.ttf HTTP/1.1" 200 -
+2018-03-12 16:22:30,851 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:30] "GET /static/font/fontawesome-webfont.woff?v=3.2.1 HTTP/1.1" 200 -
+2018-03-12 16:22:30,860 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:30] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 -
+2018-03-12 16:22:30,880 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:30] "GET /static/js/popper.min.js.map HTTP/1.1" 404 -
+2018-03-12 16:22:30,932 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:30] "GET /static/js/bootstrap.min.js.map HTTP/1.1" 200 -
+2018-03-12 16:22:31,041 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:31] "POST /user_info HTTP/1.1" 200 -
+2018-03-12 16:22:31,065 :INFO - 10.59.164.77 - - [12/Mar/2018 16:22:31] "POST /_rank_list HTTP/1.1" 200 -
+2018-03-12 16:23:13,519 :INFO - 10.59.164.77 - - [12/Mar/2018 16:23:13] "POST /dump_sent HTTP/1.1" 200 -
+2018-03-12 16:23:22,035 :INFO - 10.59.164.77 - - [12/Mar/2018 16:23:22] "POST /_rank_list HTTP/1.1" 200 -
+2018-03-12 16:23:22,084 :INFO - 10.59.164.77 - - [12/Mar/2018 16:23:22] "POST /user_info HTTP/1.1" 200 -
+2018-03-12 16:32:34,855 :INFO -  * Running on http://10.59.174.98:5000/ (Press CTRL+C to quit)
+2018-03-12 16:32:34,857 :INFO -  * Restarting with stat
+2018-03-12 16:32:35,769 :WARNING -  * Debugger is active!
+2018-03-12 16:32:35,770 :INFO -  * Debugger PIN: 204-108-044
+2018-03-12 16:32:35,852 :INFO - 10.59.164.77 - - [12/Mar/2018 16:32:35] "GET / HTTP/1.1" 200 -
+2018-03-12 16:32:35,902 :INFO - 10.59.164.77 - - [12/Mar/2018 16:32:35] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2018-03-12 16:32:35,951 :INFO - 10.59.164.77 - - [12/Mar/2018 16:32:35] "GET /static/css/index.css HTTP/1.1" 200 -
+2018-03-12 16:32:35,961 :INFO - 10.59.164.77 - - [12/Mar/2018 16:32:35] "GET /static/imgs/SAP%20logo.png HTTP/1.1" 200 -
+2018-03-12 16:32:35,995 :INFO - 10.59.164.77 - - [12/Mar/2018 16:32:35] "GET /static/css/base.css HTTP/1.1" 200 -
+2018-03-12 16:32:36,049 :INFO - 10.59.164.77 - - [12/Mar/2018 16:32:36] "GET /static/Orator%20Std%20Medium.ttf HTTP/1.1" 200 -
+2018-03-12 16:32:36,074 :INFO - 10.59.164.77 - - [12/Mar/2018 16:32:36] "GET /static/imgs/Index.png HTTP/1.1" 200 -
+2018-03-12 16:32:36,169 :INFO - 10.59.164.77 - - [12/Mar/2018 16:32:36] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 -
+2018-03-12 16:32:42,403 :INFO - 10.59.164.77 - - [12/Mar/2018 16:32:42] "GET /howtoplay? HTTP/1.1" 200 -
+2018-03-12 16:32:42,463 :INFO - 10.59.164.77 - - [12/Mar/2018 16:32:42] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2018-03-12 16:32:42,500 :INFO - 10.59.164.77 - - [12/Mar/2018 16:32:42] "GET /static/css/how.css HTTP/1.1" 200 -
+2018-03-12 16:32:42,510 :INFO - 10.59.164.77 - - [12/Mar/2018 16:32:42] "GET /static/js/jquery.min.js HTTP/1.1" 200 -
+2018-03-12 16:32:42,551 :INFO - 10.59.164.77 - - [12/Mar/2018 16:32:42] "GET /static/imgs/SAP%20logo.png HTTP/1.1" 200 -
+2018-03-12 16:32:42,559 :INFO - 10.59.164.77 - - [12/Mar/2018 16:32:42] "GET /static/imgs/Page%202%20slice.png HTTP/1.1" 200 -
+2018-03-12 16:32:42,584 :INFO - 10.59.164.77 - - [12/Mar/2018 16:32:42] "GET /static/css/base.css HTTP/1.1" 200 -
+2018-03-12 16:32:42,769 :INFO - 10.59.164.77 - - [12/Mar/2018 16:32:42] "GET /static/Orator%20Std%20Medium.ttf HTTP/1.1" 200 -
+2018-03-12 16:32:42,780 :INFO - 10.59.164.77 - - [12/Mar/2018 16:32:42] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 -
+2018-03-12 16:34:50,984 :INFO - 10.59.164.77 - - [12/Mar/2018 16:34:50] "GET /howtoplay HTTP/1.1" 200 -
+2018-03-12 16:34:51,038 :INFO - 10.59.164.77 - - [12/Mar/2018 16:34:51] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2018-03-12 16:34:51,073 :INFO - 10.59.164.77 - - [12/Mar/2018 16:34:51] "GET /static/css/how.css HTTP/1.1" 200 -
+2018-03-12 16:34:51,094 :INFO - 10.59.164.77 - - [12/Mar/2018 16:34:51] "GET /static/js/jquery.min.js HTTP/1.1" 200 -
+2018-03-12 16:34:51,129 :INFO - 10.59.164.77 - - [12/Mar/2018 16:34:51] "GET /static/imgs/Page%202%20slice.png HTTP/1.1" 200 -
+2018-03-12 16:34:51,150 :INFO - 10.59.164.77 - - [12/Mar/2018 16:34:51] "GET /static/imgs/SAP%20logo.png HTTP/1.1" 200 -
+2018-03-12 16:34:51,159 :INFO - 10.59.164.77 - - [12/Mar/2018 16:34:51] "GET /static/css/base.css HTTP/1.1" 200 -
+2018-03-12 16:34:51,225 :INFO - 10.59.164.77 - - [12/Mar/2018 16:34:51] "GET /static/Orator%20Std%20Medium.ttf HTTP/1.1" 200 -
+2018-03-12 16:34:51,292 :INFO - 10.59.164.77 - - [12/Mar/2018 16:34:51] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 404 -

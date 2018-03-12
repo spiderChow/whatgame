@@ -9,6 +9,13 @@ import logging
 
 logging.basicConfig(level=logging.INFO,filename='whatgame.log',format='%(asctime)s :%(levelname)s - %(message)s')
 
+console = logging.StreamHandler()
+console.setLevel(logging.INFO)
+formatter = logging.Formatter('%(name)-12s: %(levelname)-8s %(message)s')
+console.setFormatter(formatter)
+logging.getLogger('').addHandler(console)
+
+
 @main.route('/')
 def home():
     return render_template('index.html')
