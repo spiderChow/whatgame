@@ -13,7 +13,7 @@ class Config:
 class DevelopmentConfig(Config):
 	DEBUG = True
 	SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URI') or \
-		'mysql+pymysql://root:xswqaz@localhost:3306/whatgame' # TODO page67
+		'mysql+pymysql://root:xswqaz@127.0.0.1:3306/whatgame?charset=utf8' # TODO page67
 
 class TestingConfig(Config):
 	TESTING = True
@@ -26,9 +26,6 @@ class ProductionConfig(Config):
 
 config = {
 	'development' : DevelopmentConfig,
-	'testing' : TestingConfig,
-	'production' : ProductionConfig,
-
 	'default' : DevelopmentConfig
 }
 

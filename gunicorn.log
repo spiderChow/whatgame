@@ -1,0 +1,171 @@
+[2018-03-14 17:16:34 +0800] [12366] [INFO] Starting gunicorn 19.7.1
+[2018-03-14 17:16:34 +0800] [12366] [INFO] Listening at: http://10.58.5.14:5000 (12366)
+[2018-03-14 17:16:34 +0800] [12366] [INFO] Using worker: sync
+[2018-03-14 17:16:34 +0800] [12369] [INFO] Booting worker with pid: 12369
+[2018-03-14 17:59:17 +0800] [12366] [INFO] Handling signal: term
+[2018-03-14 17:59:17 +0800] [12369] [INFO] Worker exiting (pid: 12369)
+[2018-03-14 17:59:17 +0800] [12366] [INFO] Shutting down: Master
+[2018-03-14 17:59:25 +0800] [12631] [INFO] Starting gunicorn 19.7.1
+[2018-03-14 17:59:25 +0800] [12631] [INFO] Listening at: http://10.58.5.14:5000 (12631)
+[2018-03-14 17:59:25 +0800] [12631] [INFO] Using worker: sync
+[2018-03-14 17:59:25 +0800] [12634] [INFO] Booting worker with pid: 12634
+[2018-03-14 17:59:42 +0800] [12634] [ERROR] Error handling request /dump_sent
+Traceback (most recent call last):
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/gunicorn/workers/sync.py", line 135, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/gunicorn/workers/sync.py", line 176, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1985, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1540, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/junying/whatgame/app/main/views.py", line 111, in dump_sentence
+    words = s.translate(map).split()
+TypeError: 'type' object is not subscriptable
+[2018-03-14 17:59:44 +0800] [12634] [ERROR] Error handling request /dump_sent
+Traceback (most recent call last):
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/gunicorn/workers/sync.py", line 135, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/gunicorn/workers/sync.py", line 176, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1985, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1540, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/junying/whatgame/app/main/views.py", line 111, in dump_sentence
+    words = s.translate(map).split()
+TypeError: 'type' object is not subscriptable
+[2018-03-14 17:59:44 +0800] [12634] [ERROR] Error handling request /dump_sent
+Traceback (most recent call last):
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/gunicorn/workers/sync.py", line 135, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/gunicorn/workers/sync.py", line 176, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1985, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1540, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/junying/whatgame/app/main/views.py", line 111, in dump_sentence
+    words = s.translate(map).split()
+TypeError: 'type' object is not subscriptable
+[2018-03-14 17:59:44 +0800] [12634] [ERROR] Error handling request /dump_sent
+Traceback (most recent call last):
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/gunicorn/workers/sync.py", line 135, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/gunicorn/workers/sync.py", line 176, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1985, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1540, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/junying/whatgame/app/main/views.py", line 111, in dump_sentence
+    words = s.translate(map).split()
+TypeError: 'type' object is not subscriptable
+[2018-03-14 17:59:47 +0800] [12634] [ERROR] Error handling request /dump_sent
+Traceback (most recent call last):
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/gunicorn/workers/sync.py", line 135, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/gunicorn/workers/sync.py", line 176, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1985, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1540, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/junying/whatgame/venv/lib/python3.6/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/junying/whatgame/app/main/views.py", line 111, in dump_sentence
+    words = s.translate(map).split()
+TypeError: 'type' object is not subscriptable
+[2018-03-14 18:00:45 +0800] [12631] [INFO] Handling signal: term
+[2018-03-14 18:00:45 +0800] [12634] [INFO] Worker exiting (pid: 12634)
+[2018-03-14 18:00:45 +0800] [12631] [INFO] Shutting down: Master
+[2018-03-14 18:00:50 +0800] [12699] [INFO] Starting gunicorn 19.7.1
+[2018-03-14 18:00:50 +0800] [12699] [INFO] Listening at: http://10.58.5.14:5000 (12699)
+[2018-03-14 18:00:50 +0800] [12699] [INFO] Using worker: sync
+[2018-03-14 18:00:50 +0800] [12702] [INFO] Booting worker with pid: 12702
+[2018-03-14 18:01:27 +0800] [12699] [CRITICAL] WORKER TIMEOUT (pid:12702)
+[2018-03-14 18:01:27 +0800] [12702] [INFO] Worker exiting (pid: 12702)
+[2018-03-14 18:01:27 +0800] [12730] [INFO] Booting worker with pid: 12730
+[2018-03-14 18:02:34 +0800] [12730] [INFO] Worker exiting (pid: 12730)
+[2018-03-14 18:02:34 +0800] [12740] [INFO] Booting worker with pid: 12740
+[2018-03-14 18:03:10 +0800] [12699] [INFO] Handling signal: term
+[2018-03-14 18:03:10 +0800] [12740] [INFO] Worker exiting (pid: 12740)
+[2018-03-14 18:03:10 +0800] [12699] [INFO] Shutting down: Master

@@ -1,4 +1,5 @@
 from datetime import datetime
+import re,string
 from flask import render_template, session, redirect, url_for,request, jsonify, flash
 
 from . import main
@@ -16,6 +17,8 @@ console.setFormatter(formatter)
 logging.getLogger('').addHandler(console)
 
 
+
+
 @main.route('/')
 def home():
     return render_template('index.html')
@@ -23,7 +26,7 @@ def home():
 @main.route('/howtoplay',methods=['GET','POST']) 
 def how_to_play():
     form = LoginForm()
-    print(request.method)
+    logging.info(request.method)
     if form.validate_on_submit():
         # get data from POST
         email = request.form['email']
@@ -37,6 +40,7 @@ def how_to_play():
                 # but fails to enter a name
                 username = email.split("@")[0]
             # save the new-comer into DB
+            logging.info(username)
             user = User(email=email,username=username)
             db.session.add(user)
             db.session.commit()
@@ -59,15 +63,15 @@ def play():
 ##################
 ##### three another ajax route methods
 ##################
-
 @main.route('/_rank_list',methods=['POST'])
 def rank_list():
+
     # user_id = request.args.get('user_id', 1, type=int)
     # get ranking list from DB
     l = User.query.order_by(User.score)
     l = [item.serialize for item in l.all()]
     l.reverse()
-    print(l)
+    #logging.info(l)
     return jsonify(ranklist=l)
 
 @main.route('/user_info',methods=['POST'])
@@ -77,8 +81,7 @@ def user_info():
     l = User.query.order_by(User.score)
     l = [item.serialize for item in l.all()]
     l.reverse()
-    print(type(l[0]))
-    print(type(user))
+    
     for rank ,item in enumerate(l):
         if item['email']==user['email']:
             break;
@@ -92,7 +95,7 @@ def dump_sentence():
     json = request.get_json()
     sentence = json['sentence']
     topic = json['topic']
-    print(topic+sentence)
+    logging.info(topic+sentence)
     if topic is not None and len(topic)>0:
         if sentence is not None and len(sentence)>0:
             user = User.query.filter_by(email=session['email']).first()
@@ -102,18 +105,33 @@ def dump_sentence():
             from app.main.similarity import similar 
             sim_sentence, cosine = similar(sentence.content)
             
-            if cosine == 0 :
-                user.score = user.score + 0
-                return jsonify(success=2,score=user.score)
+            if cosine == 0 : # nonsense or very very special
+                s = sentence.content
+                trans = str.maketrans(string.punctuation,' '*len(string.punctuation))
+                words = s.translate(trans).split()
+                for w in words:
+                    if not w.encode('UTF-8').isalpha():
+                        return jsonify(success=4,score=user.score)
+                
+                return jsonify(success=3,score=user.score)
             else:
+                if cosine > 0.9: # Good but the same with the db corpus
+                    user.score = user.score+1
+                    ret = jsonify(success=2,score=user.score)
+
+                else:
+                    this_score = round(10*(1/cosine)) if round(10*(1/cosine))<20 else 20
+                    user.score = user.score+this_score
+                    ret = jsonify(success=1,score=user.score)
+
+                
                 user.questionamount = user.questionamount+1
-                user.score = user.score+round(10*(1/cosine))
+                
                 
                 db.session.add(sentence)
                 db.session.add(user)
                 db.session.commit()
-                return jsonify(success=1,score=user.score)
-
+                return ret
     return jsonify(success=0,score=0)
 
 @main.route('/logout')

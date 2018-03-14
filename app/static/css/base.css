@@ -1,16 +1,20 @@
 @font-face{
   font-family: 'OratorStd';
-  src:url('../OratorStd.otf');
-  src:url('../Orator Std Medium.ttf') format('truetype'), 
-      url('../oratorstd.woff') format('woff'),
-      url('../OratorStd.otf') format('opentype');
+  src:url('../font/OratorStd.otf');
+  src:url('../font/Orator Std Medium.ttf') format('truetype'), 
+      url('../font/oratorstd.woff') format('woff'),
+      url('../font/OratorStd.otf') format('opentype');
   font-weight:normal;font-style:normal;
+}
+html{
+  height: 100%;
 }
 
 body {
   padding: 0px;
   margin: 0px;
   width: 100%;
+  height:100%;
   background-color: #d6f1ee;
   font-family: 'helvetica' ;
 }

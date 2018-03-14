@@ -10,14 +10,14 @@
     
   </head>
   <body >
-    <div class="container-fluid">
+    <div class="container-fluid ">
       
-      <div class="row" id="bigrow" >
+      <div class="row d-flex justify-content-end" id="bigrow" >
         <div class="col-1">
         </div>
         <div class="col-7" id="leftcol">
           <div class="row" id="sap">
-              <img src="{{ url_for('static', filename='imgs/SAP logo.png') }}">
+              <img src="{{ url_for('static', filename='imgs/SAP logo.png') }}" width="118px" height='57px'>
           </div>
           <div class="row">
             <div class="col-4" > 
@@ -56,12 +56,12 @@
               <div class="form-row ">
                 <div class="col-4">
                 </div>
-                <div class="col-8 row ">
+                <div class="col-8 row float-right">
                   <div class="col-8" id="alert-div">
                     
                   </div>
                   
-                  <div class="col-4"><button class="btn btn-primary btn-lg btn-block p-2" type="submit" id="submit">Submit</button></div>
+                  <div class="col-4" id="submitdiv"><button class="btn btn-primary btn-lg btn-block p-2" type="submit" id="submit">Submit</button></div>
                   
                 </div>
               </div>
@@ -73,36 +73,47 @@
         <!-- The Ranking List  -->
         <div class="col-3" id="rankcol">    
            
+          <div id='userInfo'>
+            <table>
+             <tbody   class=''>
+                <tr class="d-flex align-items-center">
+                  <th class="p-2 d-flex flex-column ">
 
-          <ul class="list-group" >
-           <li class='list-group-item d-flex justify-content-between align-items-center' id='userInfo'>
-              <img src="{{ url_for('static', filename='imgs/Slice_user.png') }}"  class='p-2'>
-              <div class='p-2 flex-column' >
-                  <h5 class='p-2'><span class='name'></span><a id='logout' href="{{url_for('main.logout')}}">  
-                    <i class="icon-off" ></i></a></h5>
+                    <img src="{{ url_for('static', filename='imgs/Placeholder.png') }}"  class='p-2'>
+                    <a class="badge badge-info p-2" id='logout' href="{{url_for('main.logout')}}">  
+                        <i class="icon-off" ></i> Log out</a>
+                  </th>
+                  <td class='p-2 flex-column' >
+                      <h5 class='p-2'><span class='name'></span></h5>
 
-                  <div class='p-2'>Rank:  <span class='rank'></span></div>
-                  <div class='p-2'>Score:  <span class='score'></span></div>
-                  <div class='p-2'>Question Amount:  <span class='q-amount'></span></div>
-              </div>
-            </li>
-          </ul>
+                      <div class='p-2'>Rank:  <span class='rank'></span></div>
+                      <div class='p-2'>Score:  <span class='score'></span></div>
+                      <div class='p-2'>Question Amount:  <span class='q-amount'></span></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
         
           <div id="rankspliter">Ranking List</div>
-          <div id="scroll"> 
-            <ul class="list-group list-group-flush" id="rank">
-              <!-- <li class='list-group-item d-flex justify-content-around lh-condensed'>
-                <div>
-                  <h1 class='align-self-center'></h1>
-                  <p>Rank</p>
-                </div>
-                <div class='d-flex flex-column'>
-                  <div class='p-2'><span class='username'></span></div>
-                  <div class='p-2'>Score:  <span class='score'></span></div>
-                  <div class='p-2'>Question amount:  <span class='q-amount'></span></div>
-                </div>
-              </li> -->
-            </ul> 
+          <div id="table-wrapper"><div id="table-scroll">
+              <table id="scroll" class="table"> 
+                <tbody id="rank">
+                  <tr>
+                    <th>
+                      <h1 class='align-self-center'></h1>
+                      <p>Rank</p>
+                    </th>
+                    <td class='d-flex flex-column'>
+                      <div class='p-2'><span class='username'></span></div>
+                      <div class='p-2'>Score:  <span class='score'></span></div>
+                      <div class='p-2'>Question amount:  <span class='q-amount'></span></div>
+                    </td>
+                  </tr>
+         
+                </tbody> 
+              </table>
+          </div>
           </div>
           
         </div>
@@ -123,6 +134,19 @@
     <script type=text/javascript>
       
       $(document).ready(function(){
+        //if there is not any move in the page, logout automatically!
+        var maxtime=60*5; // set the timeout for 5 seconds;
+        var time = maxtime;
+        $('body').mousemove(function(e){
+          time = maxtime;
+        });
+
+        setInterval(function(e){
+          time--;
+          if (time<=0){
+            window.location.href = "{{url_for('main.logout')}}";
+          }
+        },1000);
         
         $('form').submit(function(e) {
           e.preventDefault();
@@ -136,16 +160,29 @@
                 url:"{{url_for('main.dump_sentence')}}",
                 contentType: 'application/json; charset=utf-8',
                 success: function(callback){
-                 
+
                   var success = callback.success;
-                  $('#alert-div').append('<div class="alert alert-warning  alert-dismissible fade show " role="alert" ><p class="alert-p"></p><button type="button" class="close" data-dismiss="alert" aria-label="Close" id="close"><span aria-hidden="true">&times;</span></button></div>');
+                  if (success){
+                  $('#alert-div').empty();
+                   $('#alert-div').append('<div class="alert alert-dismissible fade show " role="alert" ><p class="alert-p"></p><button type="button" class="close" data-dismiss="alert" aria-label="Close" id="close"><span aria-hidden="true">&times;</span></button></div>');
+                  }
                   if(success==1){
-                    $('.alert-p').text("Great question! You earned "+callback.score+" points!");
+                    var oldscore = $('#userInfo .score').text();
+                    $('.alert-p').text("Great question! You earned "+(callback.score-oldscore)+" points!");
                     $('#rank').trigger('loadRank');
                     $('#userInfo').trigger('loadUser');
+                    $('#sentence').val("");
                   }else if (success==2){
+                    $('.alert-p').text("Good question but very similar to those asked before. Only get 1 point!");
+                     $('#rank').trigger('loadRank');
+                    $('#userInfo').trigger('loadUser');
+                    $('#sentence').val("");
+                  }else if (success==3){
                     $('.alert-p').text("Looks your question have no relationship with this topic. Please try again!");
-                  }else{
+                  }else if (success==4){
+                    $('.alert-p').text("Only English is supported! Please try again!");
+                  } 
+                  else if (success==0){
                    
                     $('.alert-p').text("Something wrong!");
                   }
@@ -155,11 +192,7 @@
             });
         });
 
-        
-        // $('.dropdown-menu').on('click', function(e) {
-        //  var $target = $(e.target);
-        //  $target.is('a') && $('#dropdownMenuButton').text($target.text());
-        // });
+      
         $('#userInfo').on("loadUser", function(){
           $.ajax({
               type: "POST",
@@ -184,18 +217,17 @@
               contentType: 'application/json; charset=utf-8',
               success: function(callback){
                 //alert(callback.ranklist);
+                
                 $("#rank").empty();
                 var count = callback.ranklist.length;
                 if (count>20){
-                  count = 20;
+                  count =20;
                 }
                 while(count>0){
-                  $("#rank").append("<li class='list-group-item d-flex justify-content-around lh-condensed'><div><h1 class='align-self-center'></h1><p>Rank</p></div><div class='d-flex flex-column'><div class='p-2'><span class='username'></span></div><div class='p-2'>Score:  <span class='score'></span></div><div class='p-2'>Question amount:  <span class='q-amount'></span></div></div></li>")
-                  count--;
-
-                }
-                $("#rank").find("h1").each(function(index,value){
-                  $(this).text(index+1);
+                  $('#rank').append("<tr><th><h1 class='align-self-center'></h1><p>Rank</p></th><td class='d-flex flex-column'><div class='p-2'><span class='username'></span></div><div class='p-2'>Score:  <span class='score'></span></div><div class='p-2'>Question amount:  <span class='q-amount'></span></div></td></tr>");
+                  count--;}
+                
+                $("#rank").find("h1").each(function(index,value){$(this).text(index+1);
                 });
                 $("#rank").find(".username").each(function(index,value){
                   $(this).text(callback.ranklist[index].username);
@@ -213,30 +245,9 @@
         })
 
         $('#rank').trigger('loadRank');
-        // $('#submit').on('click',function(){
-        //   $('#rank').trigger('loadRank');
-        //   $('#userInfo').trigger('loadUser');
-        // });
+       
 
       }); 
     </script>
-    <!-- Modal -->
-    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel"></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" id='modalClose'>Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    
 </body></html>

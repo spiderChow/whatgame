@@ -38,6 +38,16 @@
     left: -15px;
 }
 
+.alert{
+	background-color:#007a89;
+	border-radius:4px;
+	font-size: 20px;
+	color:#ffffff;
+}
+.container-fluid{
+	min-height: 100%
+}
+
 
 label{
 	font-size:20px;
@@ -47,31 +57,59 @@ form{
 	width: 100%;
 	margin: 30px;
 }
+#logout{
+	background-color:#49b5ae;
+	border-radius:4px;
+	font-size:14px;
+	color:#ffffff;
+}
+#submitdiv{
+	padding: 0;
+	margin: 0;
+}
+.float-right{
+	padding: 0;
+	margin:0;
+}
 #bigrow{
 	padding-left: -15px ! important;
 	padding-right: -15px;
+	height: calc(100vh);
 }
 #rankcol{
 	
 	margin:0;
 	padding-right:  0px;
+	max-width: 380px;
+    min-width: 322px;
+}
+#leftcol{
+	min-width: 600px;
+}
+table{
+	width: 100%;
+}
+#table-wrapper{
+	position: relative;
+	height: calc(100% - 215px);
 }
 
-#rank{
-	height: 500px;
+#table-scroll{
+	height: 100%;
 	overflow-y: scroll;
-	overflow-x: hidden;
+	
 }
 
 #userInfo{
 	background-color:#88cfcc;
 	height: 180px;
 }
-#rank li{
+#rank tr {
 	background-color: #b8e7e5;
 	color:#006677;
 	font-size: 14px;
-	height: 102px;
+	height: 100px;
+	width: 100%;
 	padding: 0;
 }
 #rank .username{
@@ -89,6 +127,8 @@ form{
 #rank div{
 	padding: 3px !important;
 	margin: 0;
+	word-wrap: break-word;
+
 }
 #rank span{
 	padding: 0;
@@ -126,5 +166,6 @@ a:active{
 	font-weight: bold;
 	font-size:20px;
 	color:#004753;
+	height:30px;
 	
 }
