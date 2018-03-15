@@ -26,22 +26,16 @@
         <div class="col-md-5">
           <h2 class="mb-3 font-weight-normal" id="howtoplay">How To Play? </h2>
           <ul class="mb-3">
-            <li>Please input as many questions as possible(ERP topic). </li>
-            <li>Every time you enter a question,we score you. </li>
-            <li>If your question is different with others, you will get high score.The lower the overlap, the higher the score.</li>
+            <li>Please input as many ERP-related questions as possible. </li>
+            <li>Every time you input a question, you will get a score. </li>
+            <li>The more different your questions are than others, the higher the score will be.</li>
           </ul>
 
           <form class="form-signin" action='' method='POST'>
               {{ form.hidden_tag() }}
               {{ form.csrf_token }}
-              {{ form.email(class="form-control mb-3",id="email",placeholder="Email Address",type="email",required="required") }}
-              <!-- {% for message in get_flashed_messages() %}
-              <div class="alert alert-warning">
-                  <button type="button" class="close" data-dismiss="alert">&times;</button>
-                  {{ message }}
-              </div>
-              {% endfor %} -->
-              {{ form.username(id="name", class="form-control mb-3",placeholder="Nick Name",type="text") }}
+              {{ form.email(class="form-control mb-3",id="email",placeholder="E-Mail Address",type="email",required="required", oninvalid="setCustomValidity('Please complete the address with an @.')", oninput="setCustomValidity('')") }}
+              {{ form.username(id="name", class="form-control mb-3",placeholder="Nick Name, not necessary for signed users!",type="text") }}
               {{ form.submit(class="btn btn-lg btn-primary btn-block",type="submit") }}
           </form>
         </div>

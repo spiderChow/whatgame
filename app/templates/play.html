@@ -13,23 +13,23 @@
     <div class="container-fluid ">
       
       <div class="row d-flex justify-content-end" id="bigrow" >
-        <div class="col-1">
-        </div>
+       
         <div class="col-7" id="leftcol">
+         
           <div class="row" id="sap">
               <img src="{{ url_for('static', filename='imgs/SAP logo.png') }}" width="118px" height='57px'>
           </div>
-          <div class="row">
-            <div class="col-4" > 
+          <div class="row d-flex justify-content-center">
+            <div class="col-3 p-2" > 
               <img src="{{ url_for('static', filename='imgs/Slice_guide.png') }}"  class="avatar" >
             </div>
             <div class="col-7 bubble" > 
               <h4>Here is an example:</h4>
-              <p>Step 1: Choose a topic "Finance".</p>
-              <p>Step 2: Type "Show me the sales amount of iPhone X last month."</p>
+              <p>Step 1: Select a topic.</p>
+              <p>Step 2: Input a question such as "Show me the sales amount of iPhone X for the last month".</p>
             </div>
           </div>
-          <div class="solid-line row">
+          <div class="solid-line row ">
           </div>
           <div class="row"> 
             <form>
@@ -50,7 +50,7 @@
                  
                 <div class="col-9 form-group">
                   <label for="sentence"> Question: </label>
-                  <input type="text" class="form-control" id="sentence" placeholder="" required="required" name="sentence">
+                  <input type="text" class="form-control" id="sentence" placeholder="" required="required" name="sentence" oninvalid="setCustomValidity('Please enter your question.')" oninput="setCustomValidity('')">
                 </div>
               </div>
               <div class="form-row ">
@@ -67,9 +67,10 @@
               </div>
             </form>
           </div>
+         
         </div>
-        <div class="col-1">
-        </div>
+        <div class="col-1"></div>
+        
         <!-- The Ranking List  -->
         <div class="col-3" id="rankcol">    
            
@@ -77,37 +78,37 @@
             <table>
              <tbody   class=''>
                 <tr class="d-flex align-items-center">
-                  <th class="p-2 d-flex flex-column ">
+                  <th class="p-2 d-flex flex-column">
 
                     <img src="{{ url_for('static', filename='imgs/Placeholder.png') }}"  class='p-2'>
                     <a class="badge badge-info p-2" id='logout' href="{{url_for('main.logout')}}">  
-                        <i class="icon-off" ></i> Log out</a>
+                        <i class="icon-off" ></i> Log Off</a>
                   </th>
-                  <td class='p-2 flex-column' >
+                  <td class='p-2 flex-column ' >
                       <h5 class='p-2'><span class='name'></span></h5>
 
-                      <div class='p-2'>Rank:  <span class='rank'></span></div>
+                      <div class='p-2'>Ranking:  <span class='rank'></span></div>
                       <div class='p-2'>Score:  <span class='score'></span></div>
-                      <div class='p-2'>Question Amount:  <span class='q-amount'></span></div>
+                      <div class='p-2'>Questions:  <span class='q-amount'></span></div>
                   </td>
                 </tr>
               </tbody>
             </table>
         </div>
         
-          <div id="rankspliter">Ranking List</div>
+          <div id="rankspliter">Rankings</div>
           <div id="table-wrapper"><div id="table-scroll">
               <table id="scroll" class="table"> 
                 <tbody id="rank">
                   <tr>
                     <th>
                       <h1 class='align-self-center'></h1>
-                      <p>Rank</p>
+                      
                     </th>
                     <td class='d-flex flex-column'>
                       <div class='p-2'><span class='username'></span></div>
                       <div class='p-2'>Score:  <span class='score'></span></div>
-                      <div class='p-2'>Question amount:  <span class='q-amount'></span></div>
+                      <div class='p-2'>Questions:  <span class='q-amount'></span></div>
                     </td>
                   </tr>
          
@@ -168,17 +169,17 @@
                   }
                   if(success==1){
                     var oldscore = $('#userInfo .score').text();
-                    $('.alert-p').text("Great question! You earned "+(callback.score-oldscore)+" points!");
+                    $('.alert-p').text("Great question! You've earned "+(callback.score-oldscore)+" points.");
                     $('#rank').trigger('loadRank');
                     $('#userInfo').trigger('loadUser');
                     $('#sentence').val("");
                   }else if (success==2){
-                    $('.alert-p').text("Good question but very similar to those asked before. Only get 1 point!");
+                    $('.alert-p').text("Good question but very similar to those asked before. You’ve earned 1 point. Think harder!");
                      $('#rank').trigger('loadRank');
                     $('#userInfo').trigger('loadUser');
                     $('#sentence').val("");
                   }else if (success==3){
-                    $('.alert-p').text("Looks your question have no relationship with this topic. Please try again!");
+                    $('.alert-p').text("Looks like your question has nothing to do with the selected topic. Please try again.");
                   }else if (success==4){
                     $('.alert-p').text("Only English is supported! Please try again!");
                   } 
@@ -224,7 +225,7 @@
                   count =20;
                 }
                 while(count>0){
-                  $('#rank').append("<tr><th><h1 class='align-self-center'></h1><p>Rank</p></th><td class='d-flex flex-column'><div class='p-2'><span class='username'></span></div><div class='p-2'>Score:  <span class='score'></span></div><div class='p-2'>Question amount:  <span class='q-amount'></span></div></td></tr>");
+                  $('#rank').append("<tr><th class=' '><h1 class=' align-items-center'></h1></th><td class='d-flex flex-column'><div class='p-2'><span class='username'></span></div><div class='p-2'>Score:  <span class='score'></span></div><div class='p-2'>Questions:  <span class='q-amount'></span></div></td></tr>");
                   count--;}
                 
                 $("#rank").find("h1").each(function(index,value){$(this).text(index+1);
