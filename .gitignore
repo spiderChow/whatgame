@@ -3,3 +3,5 @@ backups/sql
 backups/scpfile.sh
 *.log
 *.pid
+__pycache__/
+*.py[cod]
