@@ -8,6 +8,6 @@ filename=$backupdir/$dbname$time.sql
 
 server=root@10.58.137.74:/home/junying/whatgame-backup
 
-
+mysql  -u root -p  -e "select * from whatgame.users order by score DESC"  > rank.txt
 mysqldump -u root  -p $dbname  > $filename
 scp $filename $server

@@ -1,5 +1,5 @@
 from datetime import datetime
-import re,string
+import re,string,json
 from flask import render_template, session, redirect, url_for,request, jsonify, flash
 
 from . import main
@@ -139,4 +139,11 @@ def logout():
     session.pop('username',None)
     session.pop('email',None)
     return redirect(url_for('main.home'))
+
+@main.route('/rank')
+def rank():
+    l = User.query.order_by(User.score)
+    l = [item.serialize for item in l.all()]
+    l.reverse()
+    return render_template('rank.html',l=l)
 
