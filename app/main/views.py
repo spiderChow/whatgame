@@ -144,6 +144,7 @@ def logout():
 def rank():
     l = User.query.order_by(User.score)
     l = [item.serialize for item in l.all()]
+    l = [item for item in l if not 'sap.com' in item['email']] 
     l.reverse()
     return render_template('rank.html',l=l)
 
